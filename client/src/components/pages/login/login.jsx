@@ -43,7 +43,7 @@ function Login(){
             </form>
             <p className="log-p">New to this website, <NavLink to = "/register">Register</NavLink></p>
             <div className="footer-reg">
-                <p>Copyright Mayank Srivastava</p>
+                <p>Copyright Ayush Rai</p>
             </div>
         </div>
     )

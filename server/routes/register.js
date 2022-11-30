@@ -15,6 +15,7 @@ router.post('/api/entry', async (req, res)=>{
         })
         // save
         const save = await newItem.save()
+
         res.status(200).json(newItem);
     } catch (error) {
         res.json(error)
@@ -26,7 +27,7 @@ router.post("/api/entries", async (req, res) => {
     try {
         const reqEmail = req.body.email;
         const reqPassword = req.body.password;
-        console.log(reqEmail);
+        // console.log(reqEmail);
         const item = await register.findOne({email: reqEmail});
         if(item === null){
             res.json("false")

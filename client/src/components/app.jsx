@@ -17,6 +17,7 @@ function App(){
                     <Route path = "/fail" element = {<Failure />} />
                     <Route path= "/success" element = {<Success />} />
                     <Route path= "/admin" element = {<Admin />} />
+                    <Route path= "/Pat" element ={<patient/>}/>
                 </Routes>
             </Router>
         </>        
