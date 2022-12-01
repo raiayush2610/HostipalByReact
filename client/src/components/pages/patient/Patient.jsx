@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./Patient.css"
 function patient() {
   return (
     <><div>

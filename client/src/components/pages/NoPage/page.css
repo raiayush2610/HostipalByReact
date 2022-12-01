@@ -1,0 +1,14 @@
+.user2{
+          display: flex;
+          margin: 150px 45px 45px 45px;
+          justify-content: center;
+          color: green;
+          /* position: absolute */
+}
+.user{
+          display: flex;
+          margin: 45px 45px 45px 45px;
+          justify-content: center;
+          color: green;
+          position: absolute;
+}

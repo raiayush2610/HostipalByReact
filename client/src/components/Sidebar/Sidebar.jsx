@@ -1,27 +1,21 @@
 import React from 'react'
+import { useState } from 'react';
 import { useEffect } from 'react'
 import cross from "../../images/cross.png";
 import hamburger from "../../images/hamsign.png"
+import "./sidebar.css"
 function Sidebar() {
-
-useEffect(()=>{
-          document.querySelector('.cross').style.display = 'none';
-          document.querySelector('.hamburger').addEventListener("click", ()=>{
-
-          document.querySelector('.main-sidebar').classList.toggle('sidebarGo');
-
-          if( document.querySelector('.main-sidebar').classList.contains('sidebarGo')){
-          document.querySelector('.ham').style.display = 'inline';
-          document.querySelector('.cross').style.display = 'none';
-          }
+          const [isActive,SetActive] = useState("false")
 
 
-}); 
-
-},[])          
+const handlechange =() =>{
+          SetActive(!isActive)
+}        
   return (
     <>
-    <div class="main-sidebar">
+    <div className={isActive ? "sidebarGo": "main-sidebar"}>    
+    {/* <div className="main-sidebar">     */}
+
             <div>
                 <a href="http://"></a>
             </div>
@@ -41,14 +35,14 @@ useEffect(()=>{
         <section id="content-header">
                 
                     <div class="hamburger" >
-                        <img class="cross"  src={cross} width="30px" alt=""/>
-                    //     <img class="ham" src={hamburger}   width="30px" alt=""/>
+                        
+                       <img class="ham" src={hamburger} onClick={handlechange}  width="30px" alt=""/>
                     
                 </div>
         </section>
+        <div className="admin">
     
-    
-    
+          </div>
     </>
   )
 }

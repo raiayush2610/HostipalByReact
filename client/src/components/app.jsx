@@ -9,7 +9,8 @@ import Patient from "./pages/Patient/Patient";
 import Depart from "./pages/department/depart";
 import Doctor from "./pages/doctor/doctor";
 import Footer from "./Footer/footer";
-import Sidebar from "./Sidebar/Sidebar";
+import NoPage from "./pages/NoPage/nopage";
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App(){
@@ -26,8 +27,8 @@ function App(){
                     <Route path= "/Patient" element = {<Patient />}/>
                     <Route path= "/reacherDept" element ={<Depart/>}/>
                     <Route path= "/doc" element ={<Doctor/>}/>
-                    <Route path= "/side" element ={<Sidebar/>}/>
-
+                    <Route path= '*' element ={<NoPage/>}/>
+                    
                 </Routes>
                 <Footer/> 
       
