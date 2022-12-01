@@ -6,7 +6,7 @@ import Failure from "./pages/failure/failure";
 import Success from "./pages/success/success";
 import Admin from "./pages/admin/admin";
 import Patient from "./pages/Patient/Patient";
-import Depart from "./pages/department/depart";
+import ReacherDept from "./pages/department/depart";
 import Doctor from "./pages/doctor/doctor";
 import Footer from "./Footer/footer";
 import NoPage from "./pages/NoPage/nopage";
@@ -25,7 +25,7 @@ function App(){
                     <Route path= "/success" element = {<Success />} />
                     <Route path= "/admin" element = {<Admin />} />
                     <Route path= "/Patient" element = {<Patient />}/>
-                    <Route path= "/reacherDept" element ={<Depart/>}/>
+                    <Route path= "/reacherDept" element ={<ReacherDept/>}/>
                     <Route path= "/doc" element ={<Doctor/>}/>
                     <Route path= '*' element ={<NoPage/>}/>
                     

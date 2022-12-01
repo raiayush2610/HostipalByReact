@@ -28,7 +28,7 @@ function Register (){
 
   return (
     <div>
-    <Header />
+    {/* <Header /> */}
       <h1 className='heading-h1'>Register</h1>
 
       

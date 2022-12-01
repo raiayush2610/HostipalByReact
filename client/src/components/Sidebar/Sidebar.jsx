@@ -24,7 +24,8 @@ const handlechange =() =>{
                 <li><a href="/Doc">Add Doctor</a></li> 
                 <li><a href="/Deldoc">Delete Doctor</a></li> 
                 <li> <a href="/LisDoc">List Doctor</a></li> 
-                <li> <a href="/departmentForm">Add Clinic</a></li> 
+                <li> <a href="/reacherDept">Add Clinic</a></li> 
+                <li> <a href="/Patient">Add Patient</a></li> 
                 <li> <a href="/Lisclinic">List Clinic</a></li> 
                 <li> <a href="/Delclinic">Delete Clinic</a></li> 
                 <li> <a href="/Lispatient">Patient List</a></li> 
