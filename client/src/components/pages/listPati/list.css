@@ -1,0 +1,29 @@
+.patlist{
+          position: absolute;
+           left: 45px;
+           top: 45px;
+}
+#customers {
+          margin: 45px 0 0 0 ;
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 20%;
+          background-color: white;
+        }
+        
+        #customers td, #customers th {
+          border: 1px solid #11c62f;
+          padding: 20px;
+        }
+        
+       
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #200688;
+          color: white;
+        }

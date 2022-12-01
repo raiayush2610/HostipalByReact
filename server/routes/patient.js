@@ -4,13 +4,14 @@ const Patient = require('../models/patiModel');
 Patroute.post('/Patient', async (req, res)=>{
           try {
             console.log("Patient port is working");
+            console.log(req.body.patBlood);
           const newPatient = new Patient({
                     patientName: req.body.patName,
                     patientAge: req.body.patAge,
                     patientSex: req.body.patSex,
                     patientDisease: req.body.patDisease,
                     patientEmail: req.body.patEmail,
-                    patientBlood: req.body.patblood,
+                    patientBlood: req.body.patBlood,
                     patientNumber: req.body.patNumber,
                     patientPlace: req.body.place 
                     })    
@@ -23,13 +24,14 @@ Patroute.post('/Patient', async (req, res)=>{
           }
 
 })
-Patroute.get('/api/Patients', async (req, res)=>{
-          console.log('hello');
+Patroute.get('/Patients', async (req, res)=>{
+          
          try{
-             const Patient = await Patient.find({});
-             console.log(Patient)
+            console.log('hello');
+             const reqPatient = await Patient.find({ });
+             res.json(reqPatient)
              // save
-             res.status(200).json(Patient)
+            
          } catch (error) {
              res.json(error)
              

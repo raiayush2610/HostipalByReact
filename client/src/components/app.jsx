@@ -12,6 +12,7 @@ import Footer from "./Footer/footer";
 import NoPage from "./pages/NoPage/nopage";
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Listpat from "./pages/listPati/Listpat";
 
 function App(){
     return(
@@ -27,7 +28,9 @@ function App(){
                     <Route path= "/Patient" element = {<Patient />}/>
                     <Route path= "/reacherDept" element ={<ReacherDept/>}/>
                     <Route path= "/doc" element ={<Doctor/>}/>
+                    <Route path ="/Lispatient" element={<Listpat/>}/>
                     <Route path= '*' element ={<NoPage/>}/>
+                    
                     
                 </Routes>
                 <Footer/> 

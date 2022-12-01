@@ -4,7 +4,10 @@ const DeparmentSchema = new  mongoose.Schema({
           deparmentName: String,
           deparmentHead: String,
           departmentArea:String,
-          deparmentEmployment: Number
+          deparmentEmployment: Number,
+          deparmentphoneno: Number,
+          DepartmentOpeningtime: String,
+          DepartmentClosingtime: String
 
 });
 

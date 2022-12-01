@@ -10,10 +10,12 @@ function Patient() {
   const [patDisease,setpatDisease]= useState('');
   const [patno,setpatno]= useState();
   const [patState,setpatState]= useState();
+  const [entry,setEntry]= useState([]);
   const addItem = async() => {
     //  e.preventDefault();
     
      try {
+      console.log(patBlood);
        const res = await axios.post(`http://localhost:4000/Pat/Patient`,
        {
         patName: patName,
@@ -24,12 +26,8 @@ function Patient() {
         patNumber:patno,
         place:patState
       })
-        console.log(res.data);
-        console.log();
-        setpatState((prev) => [...prev, res.data]);
-        
-        
-
+        setEntry((prev) => [...prev, res.data]);
+       
      } catch (error) {
        console.error(error);
      }

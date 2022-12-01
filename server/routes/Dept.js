@@ -2,15 +2,22 @@ const Deptroute = require('express').Router();
 const Department = require('../models/deptModel');
 Deptroute.post('/api/reacherDept', async (req, res)=>{
           try {
+            console.log("dept port is working");
+            console.log(req.body.Opentime);
+
           const newDepartment = new Department({
-                    deparmentName: req.body.deptname,
-                    deparmentHead: req.body.deptname,
-                    departmentArea: req.body.deptArea,
-                    deparmentEmployment: req.body.empl
+                    deparmentName: req.body.name,
+                    deparmentHead: req.body.head,
+                    departmentArea: req.body.Area,
+                    deparmentEmployment: req.body.Enploy,
+                    deparmentphoneno:req.body.Phoneno,
+                    DepartmentOpeningtime:req.body.Opentime,
+                    DepartmentClosingtime:req.body.Closingtime,
                     })    
                     // save
           const save = await newDepartment.save()
                     res.status(200).json(newDepartment);
+                    console.log(newDepartment);
           } catch (error) {
           console.log(error); 
           }
