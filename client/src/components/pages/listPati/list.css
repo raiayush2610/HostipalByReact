@@ -1,6 +1,6 @@
 .patlist{
           position: absolute;
-           left: 45px;
+           left: 60px;
            top: 45px;
 }
 #customers {
@@ -27,3 +27,24 @@
           background-color: #200688;
           color: white;
         }
+        details {
+          border: 1px solid #aaa;
+          border-radius: 4px;
+          padding: .5em .5em 0;
+      }
+      
+      summary {
+          font-weight: bold;
+          width: 500px;
+          
+          
+      }
+      
+      details[open] {
+          padding: .5em;
+      }
+      
+      details[open] summary {
+          border-bottom: 1px solid #aaa;
+          margin-bottom: .5em;
+      }

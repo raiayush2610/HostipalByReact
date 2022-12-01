@@ -25,7 +25,9 @@ function Listpat() {
           <Sidebar/>
     <div className="admin">
           <div className='patlist'>
-                    <h1>Here are the list of all patient</h1>
+                    
+                    <details>
+                    <summary>Here are the list of all patient</summary>
                     <table id="customers" >
                     <tr>
                               <th>Patient Name</th><th>Patient Age</th><th>Patient Sex</th><th>Patient BloodGroup</th><th>Patient Area</th><th>Patient Disease</th><th>Patient Number</th>
@@ -33,17 +35,24 @@ function Listpat() {
                                         {
                                         Patients.map((pat=>
                                          <tr>
-                                                            <td>{pat.patientName}</td>
+                                                            {/* <td>{pat.patientName}</td>
                                                             <td>{pat.patientAge}</td>
-                                                            <td>{pat.patientSex}</td>
-                                                            <td>{pat.patientBlood}</td>
-                                                            <td>{pat.patientPlace}</td>
-                                                            <td>{pat.patientDisease}</td>
-                                                            <td>{pat.patientNumber}</td>
+                                                            <td>{pat.patientSex}</td> */}
+
+                                                            {/* {(pat.patientBlood == null) ?  <td>null</td> : <td>{pat.patientBlood}</td>} */}
+                                                            {(pat.patientName == null) ?  <td>null</td> : <td>{pat.patientName}</td>}
+                                                            {(pat.patientAge == null) ?  <td>null</td> : <td>{pat.patientAge}</td>}
+                                                            {(pat.patientSex == null) ?  <td>null</td> : <td>{pat.patientSex}</td>}
+                                                            {(pat.patientBlood == null) ?  <td>null</td> : <td>{pat.patientBlood}</td>}
+                                                            {(pat.patientPlace == null) ?  <td>nill</td> : <td>{pat.patientPlace}</td>}
+                                                            {(pat.patientDisease == null) ?  <td>nill</td> : <td>{pat.patientDisease}</td>}
+                                                            {(pat.patientNumber == null) ?  <td>0</td> : <td>{pat.patientNumber}</td>}
+                                                          
                                         </tr>
                                         ))}
                     </table>
-                    </div>
+                    </details>
+                </div>
           </div>
           </>
   )

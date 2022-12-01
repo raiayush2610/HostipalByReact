@@ -28,6 +28,7 @@ docrouter.get('/api/doctors', async (req, res)=>{
          try{
              const doctor = await Doctor.find({});
              console.log(doctor)
+             res.json(doctor);
              // save
              res.status(200).json(doctor)
          } catch (error) {
