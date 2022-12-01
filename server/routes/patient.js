@@ -1,19 +1,23 @@
 const Patroute = require('express').Router();
 const Patient = require('../models/patiModel');
 
-Patroute.post('/api/Patient', async (req, res)=>{
+Patroute.post('/Patient', async (req, res)=>{
           try {
+            console.log("Patient port is working");
           const newPatient = new Patient({
                     patientName: req.body.patName,
                     patientAge: req.body.patAge,
                     patientSex: req.body.patSex,
                     patientDisease: req.body.patDisease,
                     patientEmail: req.body.patEmail,
-                    patientNumber: req.body.patNumber 
+                    patientBlood: req.body.patblood,
+                    patientNumber: req.body.patNumber,
+                    patientPlace: req.body.place 
                     })    
                     // save
           const save = await newPatient.save()
                     res.status(200).json(newPatient);
+                    console.log(newPatient);
           } catch (error) {
           console.log(error); 
           }

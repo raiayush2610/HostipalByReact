@@ -5,8 +5,10 @@ const PatientSchema = new mongoose.Schema({
           patientAge:Number,
           patientSex:String,
           patientDisease:String,
+          patientBlood:String,
           patientEmail:String,
-          patientNumber:Number
+          patientNumber:Number,
+          patientPlace:String
 
 });
 

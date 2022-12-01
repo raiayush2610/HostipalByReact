@@ -6,6 +6,11 @@ import { BsInstagram } from "react-icons/bs";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillGithub} from "react-icons/ai";
 const Footer = () =>{
+    const currentYear = new Date().getFullYear();
+    const demoDate = new Date();
+
+    const current = new Date();
+    const date = `${current.getMonth()+1}-${current.getFullYear()}`;
     return (
     <div className="footer">
   
@@ -13,8 +18,9 @@ const Footer = () =>{
  <a href="https://www.instagram.com"><BsInstagram className="social-icon" size={20}/></a>
  <a href="https://in.linkedin.com/"><AiFillLinkedin className="social-icon"/></a>
  <a href="https://github.com/"><AiFillGithub className="social-icon"/></a>
- <h5 className="copyright">Copyright with Hospital</h5>
-    </div>
+ <p className="copyright"> &copy; Copyright  Hospital {date}  </p>
+            </div>
+    
 )
 
 }

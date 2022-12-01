@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cors({origin: '*'}))
 
 mongoose.connect('mongodb://localhost:27017/doctorDetails')
-.then(()=> console.log("Item Database connected"))
+
 .catch(err => console.log(err));
 mongoose.createConnection(process.env.DB_CONN)
 mongoose.createConnection(process.env.DB_DEP)
@@ -31,9 +31,9 @@ app.use('/', Adminroute);
 app.use('/Pat',Patroute);
 app.use('/Doc',Docroute)
 app.use('/reacherDept',DeptRoute)
-console.log("464");
 
 
-app.listen(4000, function(){
-    console.log("Server is running on port 2000");
+Port= 4000;
+app.listen(Port, function(){
+    console.log("Server is running on port  "+Port);
 });

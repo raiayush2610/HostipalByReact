@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const DoctorSchema = new mongoose.Schema({
-          doctorName :String,
-          doctorSpecilization :String, 
-          YearofExperience :Number,
-          doctorEmail :String,
-          doctorNumber :Number,
-          place :String
+          docName : String,
+          docSpecilization :String, 
+          Year:Number,
+          docEmail :String,
+          docNumber :Number,
+          docplace : String
 
 });
 

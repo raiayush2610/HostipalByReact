@@ -42,12 +42,7 @@ bottom: 0;
 a{
 color: black;
 }
-.footer{
-text-align: center;
-background-color: rgb(31, 167, 122);
-margin-bottom: 0;
-padding: 15px;
-}
+
 .heading-h1{
 text-align: center;
 margin-top: 50px;
@@ -66,11 +61,11 @@ margin-top: 20px;
 #login-button{
 margin-top: 25px;
 }
-.form-button{
+/* .form-button{
 position: absolute;
 left: 47%;
 top: 400px;
-}
+} */
 .reg-nav, .reg-nav:hover, .reg-nav:focus{
 text-decoration: none;
 }

@@ -1,6 +1,40 @@
 import React from 'react'
+import { useState } from 'react';
+import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
-function patient() {
+function Patient() {
+  const [patName,setpatName]= useState('');
+  const [patAge,setpatAge]= useState( );
+  const [patSex,setpatSex]= useState('');
+  const [patBlood,setpatBlood]= useState('');
+  const [patDisease,setpatDisease]= useState('');
+  const [patno,setpatno]= useState();
+  const [patState,setpatState]= useState();
+  const addItem = async() => {
+    //  e.preventDefault();
+    
+     try {
+       const res = await axios.post(`http://localhost:4000/Pat/Patient`,
+       {
+        patName: patName,
+        patAge:patAge,
+        patSex:patSex,
+        patBlood:patBlood,
+        patDisease:patDisease,
+        patNumber:patno,
+        place:patState
+      })
+        console.log(res.data);
+        console.log();
+        setpatState((prev) => [...prev, res.data]);
+        
+        
+
+     } catch (error) {
+       console.error(error);
+     }
+   }
+  
   return (
     <>
       <Sidebar/>
@@ -9,31 +43,31 @@ function patient() {
       <h1 class="h3 mb-3 mb-4 fw-normal">Patient Form </h1>   
   
       <div class="form-floating">
-        <input type="text" name="patName" class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" required autoFocus/>
+        <input type="text" name="patName" class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
         <label htmlFor="floatingInput1">Patient Full name:</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patAge" class="form-control bottom" id="floatingInput2" placeholder="Patient's Age"required/>
+        <input type="text" name="patAge" class="form-control bottom" id="floatingInput2" placeholder="Patient's Age" onChange={(e)=>{setpatAge(e.target.value)}}required/>
         <label htmlFor="floatingInput2">Patient's Age</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patSex" class="form-control bottom" id="floatingInput2" placeholder="Sex" required/>
+        <input type="text" name="patSex" class="form-control bottom" id="floatingInput2" placeholder="Sex"  onChange={(e)=>{setpatSex(e.target.value)}}required/>
         <label htmlFor="floatingInput2">Patient's Sex</label>
       </div>
       <div class="form-floating">
-          <input type="text" name="patBlood"class="form-control bottom" id="floatingBlood " placeholder="Blood group"required/>
+          <input type="text" name="patBlood"class="form-control bottom" id="floatingBlood " onChange={(e)=>{setpatBlood(e.target.value)}}placeholder="Blood group"required/>
           <label htmlFor="floatingBlood ">Blood group</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patDisease"class="form-control bottom" id="floatingdisease" placeholder="Patient Disease"required/>
+        <input type="text" name="patDisease"class="form-control bottom" id="floatingdisease" onChange={(e)=>{setpatDisease(e.target.value)}}placeholder="Patient Disease"required/>
         <label htmlFor="floatingdisease">Patient Disease</label>
     </div>
     <div class="form-floating">
-      <input type="tel" name="patNumber"class="form-control bottom" id="floatingPhone" placeholder="Patient Phone Number:-"required />
+      <input type="tel" name="patNumber"class="form-control bottom" id="floatingPhone"onChange={(e)=>{setpatno(e.target.value)}} placeholder="Patient Phone Number:-"required />
       <label htmlFor="floatingPhone">Patient Phone Number:-</label>
   </div>
       <div class="form-floating">
-        <select name="state" id="selectBox" class="form-control bottom " >
+        <select name="state" id="selectBox" onChange={(e)=>{setpatState(e.target.value)}} class="form-control bottom " >
           <option value="">State / UT *</option>
                                       <option value="Andaman">Andaman &amp; Nicobar Islands</option>
                                       <option value="Andhra_Pradesh">Andhra Pradesh</option>
@@ -79,7 +113,7 @@ function patient() {
       
   
      
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Add as Patient </button>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Add as Patient </button>
       <p class="mt-5 mb-3 text-muted">&copy; hostpital</p>
     </form>
   </main>
@@ -89,4 +123,4 @@ function patient() {
   )
 }
 
-export default patient;
+export default Patient;

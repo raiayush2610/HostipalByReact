@@ -5,7 +5,38 @@ import Sidebar from "../../Sidebar/Sidebar";
 import Header from "../home/navbar";
 import { NavLink } from 'react-router-dom';
 function Doctor() {
-  
+  const [Docname,setDocname] = useState('');
+  const [docSpec,setSpec] = useState();
+  const [docExper,setExper] = useState();
+  const [Docemail,setDocemail] = useState(' ');
+  const [Docno, setDocno] = useState();
+  const [docentries, setDocEntries] = useState([]);
+  const [city, setcity] = useState();
+
+  const addItem = async() => {
+    //  e.preventDefault();
+    
+     try {
+       const res = await axios.post(`http://localhost:4000/Doc/doctor`,
+       {
+        doctorName: Docname,
+       
+        doctorSpecilization:docSpec,
+        YearofExperienc:docExper,
+        doctorEmail:Docemail,
+        doctorNumber:Docno,
+        place:city
+      })
+        console.log(res.data);
+        console.log(Docname);
+        setDocEntries((prev) => [...prev, res.data]);
+        console.log(docentries);
+        
+
+     } catch (error) {
+       console.error(error);
+     }
+   }
   
   return (
     <>
@@ -15,26 +46,30 @@ function Doctor() {
     <h1 class="h3 mb-3 mb-4 fw-normal">Doctor Form </h1>   
 
     <div class="form-floating">
-      <input type="text" name="dname" class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" required autoFocus/>
+      <input type="text" name="dname" class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setDocname(e.target.value)}} required autoFocus/>
       <label for="floatingInput1">Doctor Full name:</label>
     </div>
     
     <div class="form-floating">
-      <input type="text" name="spec" class="form-control bottom" id="floatingInput2" placeholder="Speclization"required/>
+      <input type="text" name="spec" class="form-control bottom" id="floatingInput2" onChange={(e)=>{setSpec(e.target.value)}} placeholder="Speclization"required/>
       <label for="floatingInput2">Speclization</label>
     </div>
     <div class="form-floating">
-        <input type="number"  min="5" name="year"class="form-control bottom" id="yaer" placeholder="Year_of_Experience"required/>
+        <input type="number"  min="5" name="year"class="form-control bottom" id="yaer"onChange={(e)=>{setExper(e.target.value)}} placeholder="Year_of_Experience"required/>
         <label for="year">Year of Experience</label>
     </div>
     <div class="form-floating">
-      <input type="tel" name="phone"class="form-control bottom" id="tel" placeholder="doctor_phone_number"required/>
+      <input type="email" name="demail"class="form-control bottom" id="email" onChange={(e)=>{setDocemail(e.target.value)}}placeholder="Doctor Email id"required/>
+      <label for="email">Doctor Email id</label>
+  </div>
+    <div class="form-floating">
+      <input type="tel" name="dnumber"class="form-control bottom" id="tel" onChange={(e)=>{setDocno(e.target.value)}}placeholder="doctor_phone_number"required/>
       <label for="tel">Doctor Phone Number</label>
   </div>
     
     
     <div>
-      <select name="state" id="state" class="form-control bottom ">
+      <select name="state" id="state"  onChange={(e)=>{setcity(e.target.value)}}class="form-control bottom ">
         <option value="">State / UT *</option>
                                     <option value="Andaman">Andaman &amp; Nicobar Islands</option>
                                     <option value="Andhra_Pradesh">Andhra Pradesh</option>
@@ -78,7 +113,7 @@ function Doctor() {
 
 
    
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Add as Doctor </button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Add as Doctor </button>
     <p class="mt-5 mb-3 text-muted">&copy; hostpital</p>
   </form>
 </main>

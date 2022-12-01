@@ -1,24 +1,29 @@
-const Docroute = require('express').Router();
+const docrouter = require('express').Router();
 
 const Doctor = require('../models/docModel');
-Docroute.post('/api/doctor', async (req, res)=>{
+
+docrouter.post('/doctor', async (req, res)=>{
+   
           try {
+            console.log("doct port is working");
+           
           const newDoctor = new Doctor({
-                    doctorName: req.body.dname,
-                    doctorSpecilization: req.body.spec,
-                    YearofExperience: req.body.year,
-                    doctorEmail: req.body.demail,
-                    doctorNumber: req.body.dnumber
+                    docName: req.body.doctorName,
+                    docSpecilization: req.body.doctorSpecilization,
+                    Year: req.body.YearofExperienc,
+                    docEmail: req.body.doctorEmail,
+                    docNumber: req.body.doctorNumber,
+                    docplace: req.body.place
                     })    
                     // save
           const save = await newDoctor.save()
-                    res.status(200).json(newDoctor);
+                   console.log(newDoctor);
           } catch (error) {
           console.log(error); 
           }
 
 })
-Docroute.get('/api/doctors', async (req, res)=>{
+docrouter.get('/api/doctors', async (req, res)=>{
           console.log('hello');
          try{
              const doctor = await Doctor.find({});
@@ -30,7 +35,7 @@ Docroute.get('/api/doctors', async (req, res)=>{
              
          }
 })
-Docroute.put('/api/doctors/:id', async (req, res)=>{
+docrouter.put('/api/doctors/:id', async (req, res)=>{
           console.log(req.params.id);
           try {
               const updateDept = await Doctor.findByIdAndUpdate(req.params.id, {$set: req.body});
@@ -39,7 +44,7 @@ Docroute.put('/api/doctors/:id', async (req, res)=>{
               res.json(error)
           }
 })
-Docroute.delete('/api/doctors/:_id', async (req,res)=>{
+docrouter.delete('/api/doctors/:_id', async (req,res)=>{
           console.log(req.params._id);
           
           try {
@@ -49,4 +54,4 @@ Docroute.delete('/api/doctors/:_id', async (req,res)=>{
               res.json(error)
           }
 })
-module.exports = Docroute;
+module.exports = docrouter;

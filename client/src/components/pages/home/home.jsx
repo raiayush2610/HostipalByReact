@@ -18,9 +18,7 @@ function Home(){
             <Carousel />
             
             <h3 className="car-text"><a href="https://www.news-medical.net/">Read more articles on health</a></h3>
-            <div className="footer">
-                <p>Copyright Ayush Rai</p>
-            </div>
+            
         </div>
     )
 }

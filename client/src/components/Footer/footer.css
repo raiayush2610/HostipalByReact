@@ -1,3 +1,10 @@
+.footer{
+    text-align: center;
+    opacity: 0.7;
+    background-color: rgb(24, 255, 178);
+    padding: 3px;
+}
+
 div.footer{
     position: fixed;
     width: 100%;
@@ -6,11 +13,11 @@ div.footer{
 
     
     .social-icon{
-        margin: 2px 15px 1px 2px;
+        margin: 2px 5px 1px 2px;
     }
     .copyright{
         padding-bottom: 1px;
-        /* font-weight: bold; */
+        font-weight: bold;
         
-        color: brown;
+        color: rgb(233, 51, 212);
     }     
