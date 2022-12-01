@@ -1,0 +1,27 @@
+.main-sidebar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding-top: 60px;
+          min-height: 100%;
+          width: 150px;
+          /* z-index: 810; */
+          font-family: 'Alegreya Sans', sans-serif;
+          
+          transition: width 0.3s ease-in-out;
+          background-color: #0a5b5a;
+}
+.sidebarGo{
+          transform: translate(-264px,108px);
+          position: absolute;   
+}
+.hamburger{
+          position: absolute;
+          cursor: pointer;
+          top: 6px;
+          left: 4px;
+        
+      }
+      .cross{
+          margin-left: 96px;
+      }

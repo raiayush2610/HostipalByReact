@@ -2,10 +2,12 @@ import React from 'react'
 
 function patient() {
   return (
-    <div>
+    <><div>
       <h1>this patient page</h1>
     </div>
+   
+    </>
   )
 }
 
-export default patient
+export default patient;

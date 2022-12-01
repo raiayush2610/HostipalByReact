@@ -2,6 +2,7 @@ import React from "react";
 import coronaImg from "../../../images/corona.png";
 import diaebetsImg from "../../../images/diabetes.png";
 import vitaminsImg from "../../../images/vitamin.png";
+import "./home.css"
 function Carousel(){
     return(
         <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">

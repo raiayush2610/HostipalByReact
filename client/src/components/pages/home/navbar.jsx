@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import "./home.css"
 function Navbar(){
     return(
         <nav className="navbar heading">

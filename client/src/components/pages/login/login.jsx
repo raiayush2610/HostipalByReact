@@ -42,9 +42,7 @@ function Login(){
                 <button onClick={handleLogin} className=" btn btn-lg btn-primary" id="login-button">Login </button> 
             </form>
             <p className="log-p">New to this website, <NavLink to = "/register">Register</NavLink></p>
-            <div className="footer-reg">
-                <p>Copyright Ayush Rai</p>
-            </div>
+            
         </div>
     )
 }

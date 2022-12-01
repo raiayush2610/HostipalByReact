@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./navbar";
 import Card from "./card";
 import Carousel from "./carousel";
+import "./home.css"
 function Home(){
     return(
         <div>

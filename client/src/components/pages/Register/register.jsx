@@ -41,10 +41,6 @@ function Register (){
         <button className = "form-button btn btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}><NavLink to = "/login">submit</NavLink></button>
       </form>
 
-      <div className="footer-reg">
-                <p>Copyright Mayank Srivastava</p>
-      </div>
-
     </div>
       
       

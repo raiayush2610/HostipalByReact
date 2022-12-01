@@ -15,6 +15,7 @@ router.post('/api/entry', async (req, res)=>{
         })
         // save
         const save = await newItem.save()
+        console.log(newItem);
 
         res.status(200).json(newItem);
     } catch (error) {
