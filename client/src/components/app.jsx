@@ -15,7 +15,6 @@ import Listcinic from "./pages/listClinic/Listcinic";
 import Delpat from "./pages/delPat/Delpat";
 import Deldoc from "./pages/delDoc/Deldoc";
 import Delclinic from "./pages/delCinic/Delclinic";
-// app
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Listpat from "./pages/listPati/Listpat";
 import Moddoc from "./pages/modDoc/Moddoc";
