@@ -31,7 +31,7 @@ router.post("/api/entries", async (req, res) => {
         // console.log(reqEmail);
         const item = await register.findOne({email: reqEmail});
         if(item === null){
-            res.json("false")
+            res.json("no")
         }else{
         const savePassword = item.password;
         if(bcrypt.compareSync(reqPassword, savePassword) === true){
