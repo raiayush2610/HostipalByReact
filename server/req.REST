@@ -1,0 +1,24 @@
+POST http://localhost:4000/Doc/doctor
+Content-Type: application/json
+
+{
+          "doctorName" : "ayush",       
+        "doctorSpecilization" : "docSpec",
+        "YearofExperienc" : 45,
+        "doctorEmail" : "ayush@ayhduu.com",
+        "doctorNumber" : 7854895878,
+        "place" : "y"
+}
+###
+Get http://localhost:4000/Doc/api/doctors
+Content-Type: application/json
+
+###
+PUT http://localhost:4000/Doc/updated/doctors/6389be4654b0b1c376dff620
+Content-Type: application/json
+
+{
+        
+       
+        "docplace" : "allahabad"
+}

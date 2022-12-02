@@ -18,6 +18,7 @@ import Delclinic from "./pages/delCinic/Delclinic";
 // app
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Listpat from "./pages/listPati/Listpat";
+import Moddoc from "./pages/modDoc/Moddoc";
 
 function App(){
     return(
@@ -39,6 +40,7 @@ function App(){
                     <Route path = "/Delpatient" element={<Delpat/>}/>
                     <Route path = "/Deldoc" element={<Deldoc/>}/>
                     <Route path = "/Delclinic" element={<Delclinic/>}/>
+                    <Route path = "/ModDoc" element={<Moddoc/>}/>
                     <Route path= '*' element ={<NoPage/>}/>
                     
                     
