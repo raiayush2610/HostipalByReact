@@ -45,6 +45,7 @@ docrouter.put('/api/doctors/:id', async (req, res)=>{
 })
 docrouter.delete('/api/doctors/:_id', async (req,res)=>{
           console.log(req.params._id);
+          console.log("doctor delete route is working");
           
           try {
               const deleteItem = await Doctor.deleteOne({_id:req.params._id});

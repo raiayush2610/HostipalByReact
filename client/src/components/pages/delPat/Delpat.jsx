@@ -2,7 +2,10 @@ import React from 'react'
 import { useState ,useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
-
+import "./del.css"
+function refreshPage() {
+  window.location.reload(false);
+}
 function Delpat() {
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
@@ -16,6 +19,18 @@ function Delpat() {
           useEffect(()=>{
                     getPatient()
           },[])
+const deletehandle= async(id)=>{
+  try {
+    console.log(id);
+    const res = await axios.delete(`http://localhost:4000/Pat/api/Patients/${id}`)
+    const newPatientslist=Patients.filter(pat=> pat._id !==id);
+    setPatient(newPatientslist)
+  } catch (error) {
+    console.log(error);
+  }
+ 
+}          
+
   return (
     <>
       <Sidebar/>
@@ -30,11 +45,7 @@ function Delpat() {
                                         {
                                         Patients.map((pat=>
                                          <tr>
-                                                            {/* <td>{pat.patientName}</td>
-                                                            <td>{pat.patientAge}</td>
-                                                            <td>{pat.patientSex}</td> */}
-
-                                                            {/* {(pat.patientBlood == null) ?  <td>null</td> : <td>{pat.patientBlood}</td>} */}
+                                                         
                                                             {(pat.patientName == null) ?  <td>null</td> : <td>{pat.patientName}</td>}
                                                             {(pat.patientAge == null) ?  <td>null</td> : <td>{pat.patientAge}</td>}
                                                             {(pat.patientSex == null) ?  <td>null</td> : <td>{pat.patientSex}</td>}
@@ -42,8 +53,8 @@ function Delpat() {
                                                             {(pat.patientPlace == null) ?  <td>nill</td> : <td>{pat.patientPlace}</td>}
                                                             {(pat.patientDisease == null) ?  <td>nill</td> : <td>{pat.patientDisease}</td>}
                                                             {(pat.patientNumber == null) ?  <td>0</td> : <td>{pat.patientNumber}</td>}
-                                                           {/* < button className = "form-button btn btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}><NavLink to = "/login">submit</NavLink></button> */}
-                                                          <td> < button  type="submit">submit</button></td>
+                                                          <td> < button className='del' type="submit" onClick={e =>{deletehandle(pat._id); }} >Delete </button></td>
+                                                          {/* <td> < button className='del' type="submit" onClick={e =>{deletehandle(pat._id); }} >Delete </button></td> */}
                                         </tr>
                                         ))}
                     </table>

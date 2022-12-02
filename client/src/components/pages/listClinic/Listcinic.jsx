@@ -8,6 +8,7 @@ function Listcinic() {
   const getCilic = async ()=>{
     try {
       const res =await axios.get('http://localhost:4000/reacherDept/api/reacherDepts').then((res)=>setCilinic(res.data))
+      console.log(Cinics);
     } catch (error) {
       console.log(error);      
     }
@@ -25,11 +26,13 @@ return (
                     <details><summary>Here are the list of cilic</summary>
                     <table id="customers" >
                     <tr><th>Name of Department</th><th>Department Head</th><th>Department Area</th><th>No of Employment</th><th>Department Phoneno</th><th>Opening Time</th><th>ClosingTime</th></tr>
+                  
                     {Cinics.map((cil=>
                     <tr>
+                     
                       {(cil.deparmentName == null) ?  <td>null</td> : <td>{cil.deparmentName}</td>}
                       {(cil.deparmentHead == null) ?  <td>null</td> : <td>{cil.deparmentHead}</td>}
-                      {(cil.deparmentArea == null) ?  <td>null</td> : <td>{cil.deparmentArea}</td>}
+                      {(cil.departmentArea == null) ?  <td>null</td> : <td>{cil.departmentArea}</td>}
                       {(cil.deparmentEmployment== null) ?  <td>null</td> : <td>{cil.deparmentEmployment}</td>}
                       {(cil.deparmentphoneno== null) ?  <td>null</td> : <td>{cil.deparmentphoneno}</td>}
                       {(cil.DepartmentOpeningtime== null) ?  <td>Unavailable</td> : <td>{cil.DepartmentOpeningtime}</td>}

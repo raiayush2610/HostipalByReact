@@ -3,7 +3,7 @@ const Patient = require('../models/patiModel');
 
 Patroute.post('/Patient', async (req, res)=>{
           try {
-            console.log("Patient port is working");
+            // console.log("Patient port is clicked");
             console.log(req.body.patBlood);
           const newPatient = new Patient({
                     patientName: req.body.patName,
@@ -27,7 +27,7 @@ Patroute.post('/Patient', async (req, res)=>{
 Patroute.get('/Patients', async (req, res)=>{
           
          try{
-            console.log('hello');
+            // console.log('get function is clicked ');
              const reqPatient = await Patient.find({ });
              res.json(reqPatient)
              // save
@@ -47,7 +47,7 @@ Patroute.put('/api/Patients/:id', async (req, res)=>{
           }
 })
 Patroute.delete('/api/Patients/:_id', async (req,res)=>{
-          console.log(req.params._id);
+        //   console.log(req.params._id);
           
           try {
               const deleteItem = await Patient.deleteOne({_id:req.params._id});

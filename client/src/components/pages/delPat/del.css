@@ -1,0 +1,21 @@
+.del {
+          -webkit-border-radius: 28;
+          -moz-border-radius: 28;
+          border-radius: 14px;
+          font-family: Arial;
+          color: #ff0000;
+          font-size: 20px;
+          background: #0f2cbd;
+          padding: 10px 5px 5px 10px;
+          text-decoration: none;
+        }
+        
+        .del:hover {
+          background: #3cb0fd;
+          background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+          text-decoration: none;
+        }

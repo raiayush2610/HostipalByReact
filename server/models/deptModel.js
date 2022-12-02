@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
-const DeparmentSchema = new  mongoose.Schema({
-          deparmentName: String,
-          deparmentHead: String,
+const DepartmentSchema = new  mongoose.Schema({
+          departmentName: String,
+          departmentHead: String,
           departmentArea:String,
-          deparmentEmployment: Number,
-          deparmentphoneno: Number,
+          departmentEmployment: Number,
+          departmentphoneno: Number,
           DepartmentOpeningtime: String,
           DepartmentClosingtime: String
 
 });
 
-module.exports = mongoose.model("Department",DeparmentSchema);
+module.exports = mongoose.model("Department",DepartmentSchema);

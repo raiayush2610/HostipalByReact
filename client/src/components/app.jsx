@@ -13,6 +13,8 @@ import NoPage from "./pages/NoPage/nopage";
 import Listdoc from "./pages/listDoc/Listdoc";
 import Listcinic from "./pages/listClinic/Listcinic";
 import Delpat from "./pages/delPat/Delpat";
+import Deldoc from "./pages/delDoc/Deldoc";
+import Delclinic from "./pages/delCinic/Delclinic";
 // app
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Listpat from "./pages/listPati/Listpat";
@@ -33,7 +35,10 @@ function App(){
                     <Route path= "/doc" element ={<Doctor/>}/>
                     <Route path = "/Lispatient" element={<Listpat/>}/>
                     <Route path = "/Lisclinic" element={<Listcinic/>}/>
+                    <Route path = "/LisDoc" element={<Listdoc/>}/>
                     <Route path = "/Delpatient" element={<Delpat/>}/>
+                    <Route path = "/Deldoc" element={<Deldoc/>}/>
+                    <Route path = "/Delclinic" element={<Delclinic/>}/>
                     <Route path= '*' element ={<NoPage/>}/>
                     
                     

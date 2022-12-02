@@ -6,11 +6,11 @@ Deptroute.post('/api/reacherDept', async (req, res)=>{
             console.log(req.body.Opentime);
 
           const newDepartment = new Department({
-                    deparmentName: req.body.name,
-                    deparmentHead: req.body.head,
+                    departmentName: req.body.name,
+                    departmentHead: req.body.head,
                     departmentArea: req.body.Area,
-                    deparmentEmployment: req.body.Enploy,
-                    deparmentphoneno:req.body.Phoneno,
+                    departmentEmployment: req.body.Enploy,
+                    departmentphoneno:req.body.Phoneno,
                     DepartmentOpeningtime:req.body.Opentime,
                     DepartmentClosingtime:req.body.Closingtime,
                     })    
@@ -44,7 +44,7 @@ Deptroute.put('/api/reacherDepts/:id', async (req, res)=>{
 })
 Deptroute.delete('/api/reacherDepts/:_id', async (req,res)=>{
           console.log(req.params._id);
-          
+          console.log("Deptament delete route is working");
           try {
               const deleteItem = await Department.deleteOne({_id:req.params._id});
               res.status(200).json('Doctor deleted');
