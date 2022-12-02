@@ -27,8 +27,6 @@ Deptroute.get('/api/reacherDepts', async (req, res)=>{
           console.log('hello');
          try{
              const reacherDept = await Department.find({});
-             console.log(reacherDept)
-             // save
              res.status(200).json(reacherDept)
          } catch (error) {
              res.json(error)

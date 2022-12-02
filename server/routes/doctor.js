@@ -19,22 +19,20 @@ docrouter.post('/doctor', async (req, res)=>{
           const save = await newDoctor.save()
                    console.log(newDoctor);
           } catch (error) {
-          console.log(error); 
+          console.log("feff"+error); 
           }
 
 })
 docrouter.get('/api/doctors', async (req, res)=>{
-          console.log('hello');
-         try{
-             const doctor = await Doctor.find({});
-             console.log(doctor)
-             res.json(doctor);
-             // save
-             res.status(200).json(doctor)
+          console.log('doctor get request is working');
+         try {
+            const doctor = await Doctor.find({});
+            res.status(200).json(doctor)
          } catch (error) {
-             res.json(error)
-             
+            res.json(error)
          }
+            
+         
 })
 docrouter.put('/api/doctors/:id', async (req, res)=>{
           console.log(req.params.id);

@@ -1,11 +1,9 @@
-import { useState } from 'react';
-import axios from 'axios';
 import React from 'react'
-import { useEffect } from 'react';
+import { useState ,useEffect } from 'react';
+import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
-import "./list.css"
 
-function Listpat() {
+function Delpat() {
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
                     try {
@@ -19,16 +17,15 @@ function Listpat() {
                     getPatient()
           },[])
   return (
-          <>
-          <Sidebar/>
+    <>
+      <Sidebar/>
     <div className="admin">
           <div className='patlist'>
                     
-                    <details>
-                    <summary>Here are the list of all patient</summary>
+                    
                     <table id="customers" >
                     <tr>
-                              <th>Patient Name</th><th>Patient Age</th><th>Patient Sex</th><th>Patient BloodGroup</th><th>Patient Area</th><th>Patient Disease</th><th>Patient Number</th>
+                              <th>Patient Name</th><th>Patient Age</th><th>Patient Sex</th><th>Patient BloodGroup</th><th>Patient Area</th><th>Patient Disease</th><th>Patient Number</th><th>Delete Button</th>
                     </tr>
                                         {
                                         Patients.map((pat=>
@@ -45,15 +42,17 @@ function Listpat() {
                                                             {(pat.patientPlace == null) ?  <td>nill</td> : <td>{pat.patientPlace}</td>}
                                                             {(pat.patientDisease == null) ?  <td>nill</td> : <td>{pat.patientDisease}</td>}
                                                             {(pat.patientNumber == null) ?  <td>0</td> : <td>{pat.patientNumber}</td>}
-                                                          
+                                                           {/* < button className = "form-button btn btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}><NavLink to = "/login">submit</NavLink></button> */}
+                                                          <td> < button  type="submit">submit</button></td>
                                         </tr>
                                         ))}
                     </table>
-                    </details>
+                    
                 </div>
           </div>
-          </>
+
+    </>
   )
 }
 
-export default Listpat;
+export default Delpat

@@ -10,8 +10,10 @@ import ReacherDept from "./pages/department/depart";
 import Doctor from "./pages/doctor/doctor";
 import Footer from "./Footer/footer";
 import NoPage from "./pages/NoPage/nopage";
-import Listdoc from "./pages/listdoc/Listdoc";
-
+import Listdoc from "./pages/listDoc/Listdoc";
+import Listcinic from "./pages/listClinic/Listcinic";
+import Delpat from "./pages/delPat/Delpat";
+// app
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Listpat from "./pages/listPati/Listpat";
 
@@ -30,7 +32,8 @@ function App(){
                     <Route path= "/reacherDept" element ={<ReacherDept/>}/>
                     <Route path= "/doc" element ={<Doctor/>}/>
                     <Route path = "/Lispatient" element={<Listpat/>}/>
-                    <Route path = "/LisDoc" element={<Listdoc/>}/>
+                    <Route path = "/Lisclinic" element={<Listcinic/>}/>
+                    <Route path = "/Delpatient" element={<Delpat/>}/>
                     <Route path= '*' element ={<NoPage/>}/>
                     
                     
