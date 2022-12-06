@@ -14,7 +14,7 @@ Get http://localhost:4000/Doc/api/doctors
 Content-Type: application/json
 
 ###
-PUT http://localhost:4000/Doc/updated/doctors/6389be4654b0b1c376dff620
+PUT http://localhost:4000/Doc/updated/doctors/6388bb751de4815aff25fff2
 Content-Type: application/json
 
 {

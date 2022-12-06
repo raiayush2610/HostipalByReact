@@ -35,19 +35,20 @@ docrouter.get('/api/doctors', async (req, res)=>{
          
 })
 docrouter.get('/api/doctor/:id',async(req,res)=>{
-      console.log(req.params.id);
+    //   console.log(req.params.id);
     //   console.log('doctor updated request is working');
     try {
         const getDoc = await Doctor.findById(req.params.id)
         res.status(200).json(getDoc)
-        console.log(getDoc);
+        // console.log(getDoc);
     } catch (error) {
         res.json(error)
     }
 })
 docrouter.put('/updated/doctors/:id', async (req, res)=>{
           console.log(req.params.id);
-        // console.log('doctor updated request is working');
+          console.log(req.body);
+        console.log('doctor updated request is working');
           try {
               const updateDept = await Doctor.findByIdAndUpdate(req.params.id, {$set: req.body});
               console.log(updateDept);
@@ -56,8 +57,8 @@ docrouter.put('/updated/doctors/:id', async (req, res)=>{
           }
 })
 docrouter.delete('/api/doctors/:_id', async (req,res)=>{
-          console.log(req.params._id);
-          console.log("doctor delete route is working");
+        //   console.log(req.params._id);
+        //   console.log("doctor delete route is working");
           
           try {
               const deleteItem = await Doctor.deleteOne({_id:req.params._id});

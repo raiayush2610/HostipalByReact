@@ -5,20 +5,29 @@ import './mod.css'
 import {Location, useLocation} from 'react-router-dom';
 function Modifly(){
   
+  
   const location =useLocation();
   const [Doctors,setDoctor]= useState([]);
   const [Whattesxt,setWhattesxt] = useState('')
-  const [Upadetedtesxt,setUpadetedtext] = useState('')
+  const [Upadetedtesxt,setUpadetedtext] = useState(" ")
+  const [doctorid,setDoctorid] = useState('');
+  const [docflied,setDocfliedname] = useState('');
+  // const [isChecked, setIsChecked] = useState(false)
 
+  const reloadPage = () => {
+    window.location.reload()
+  }
   const  handleChange=(e)=>{
+    e.preventDefault(e);
         const Value = e.target.value
         setWhattesxt(Value)
-      
+
   }
- console.log(Upadetedtesxt);
+
   const getDoctor =async() =>{
     try {
       const id = location.state.id;
+      setDoctorid(id)
          const res= await axios.get(`http://localhost:4000/Doc/api/doctor/${id}`).then((res)=> setDoctor(res.data))
         // const res = await axios.delete(`http://localhost:4000/Doc/api/doctors/${id}`)
            
@@ -30,24 +39,36 @@ function Modifly(){
 useEffect(()=>{
     getDoctor()
 },[])
-const updateDoctor = async()=>{
-  try {
-        // const res =await axios.update(`http://localhost:4000/Doc/updated/doctors/${isUpdating}`,{{Whattesxt}:Upadetedtesxt})  
+const UpdateDoctor = async(e)=>{
+ 
+  try {  const placeholder= Whattesxt;
+    console.log("place "+placeholder);
+    
+    switch (placeholder) {
+      case ("docName"):
+        // console.log("value "+Upadetedtesxt);
+          const res =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docName:Upadetedtesxt}).then(console.log("succefully"))
+          break;
+      case "docplace":
+        const res1 =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docplace:Upadetedtesxt}).then(console.log("succefully"))
+          break;
+      case "docSpecilization":
+        console.log("dsfhsd");
+        const res2 =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docSpecilization:Upadetedtesxt}).then(console.log("succefully"))
+          break;   
+      default:
+          console.log("no");
+          break;
+  }
+  
+
+   
+
   } catch (error) {
           console.log(error);
   }
 }
-
-const handlechange2 = async(e)=>{
-  e.preventDefault();
-  try {
-    
-  } catch (error) {
-    console.log(error);
-  }
- 
-}
-        
+      
   return (
 
     <>
@@ -55,7 +76,7 @@ const handlechange2 = async(e)=>{
     
     <Sidebar/>
 
-    <div className='admin'>{console.log(Doctors)}
+    <div className='admin'>
 {/* 
     <h1>{Doctors.docName}</h1>
     <h1>{Doctors.docplace}</h1>
@@ -63,13 +84,15 @@ const handlechange2 = async(e)=>{
     <h1>{Doctors.docSpecilization}</h1>
     <h1>{Doctors.Year}</h1> */}
       <h5> Modifly the paticular item</h5>
-    </div>
+    
     <div className="patlist">
  
-      
+    
       <form className='form-doc'>
-            <input type="radio" value="docName"  id='docname'
-              onChange={handleChange} name="docName" />
+            <input type="radio" value="docName"  id='docname' 
+              onClick={handleChange} name="docName"  
+              />
+            
             <label for="docname">docName</label>
 
             <input type="radio" value="docplace" 
@@ -80,13 +103,18 @@ const handlechange2 = async(e)=>{
               onChange={handleChange} name="docSpecilization"/>
             <label for="docSpecilization">docSpecilization</label>
          </form>
-        <form >
+
+        <form className=''>
         {/* <input type="text" className="bottom"  name ="ayush"  placeholder ={Whattesxt} autoComplete="false"/> */}
-        <input type="text" className="bottom"  name ="ayush" onChange={e=>{setUpadetedtext(e.target.value)}} placeholder ={Whattesxt} autoComplete="false"/>
-        <button type="submit" onClick={handlechange2}>Submit</button>
+        <label for="uniqe">This {Whattesxt} is have to Modifly:-</label>
+        <input type="text" className="bottom" id='uniqe' name ="ayush" onChange={e=>{setUpadetedtext(e.target.value)}} placeholder ={Whattesxt} autoComplete="false"/>
+        <button type="submit" onClick={e=>{e.preventDefault() ; UpdateDoctor()}} >Submit</button>
+      
         </form>
          <p>what is your press is --{'>'} {Whattesxt}</p>
+         <p>You type  --{'>'} {Upadetedtesxt}</p>
      
+    </div>
     </div>
     </>
   )
