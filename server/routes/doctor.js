@@ -5,7 +5,7 @@ const Doctor = require('../models/docModel');
 docrouter.post('/doctor', async (req, res)=>{
    
           try {
-            console.log("doct port is working");
+            // console.log("doct port is working");
            
           const newDoctor = new Doctor({
                     docName: req.body.doctorName,
@@ -24,7 +24,7 @@ docrouter.post('/doctor', async (req, res)=>{
 
 })
 docrouter.get('/api/doctors', async (req, res)=>{
-          console.log('doctor get request is working');
+        //   console.log('doctor get request is working');
          try {
             const doctor = await Doctor.find({});
             res.status(200).json(doctor)
@@ -34,8 +34,20 @@ docrouter.get('/api/doctors', async (req, res)=>{
             
          
 })
+docrouter.get('/api/doctor/:id',async(req,res)=>{
+      console.log(req.params.id);
+    //   console.log('doctor updated request is working');
+    try {
+        const getDoc = await Doctor.findById(req.params.id)
+        res.status(200).json(getDoc)
+        console.log(getDoc);
+    } catch (error) {
+        res.json(error)
+    }
+})
 docrouter.put('/updated/doctors/:id', async (req, res)=>{
-          console.log(req.params.id);console.log('doctor updated request is working');
+          console.log(req.params.id);
+        // console.log('doctor updated request is working');
           try {
               const updateDept = await Doctor.findByIdAndUpdate(req.params.id, {$set: req.body});
               console.log(updateDept);

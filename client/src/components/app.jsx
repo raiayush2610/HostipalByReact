@@ -19,6 +19,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Listpat from "./pages/listPati/Listpat";
 import Moddoc from "./pages/modDoc/Moddoc";
 
+import Mod from "./pages/modDoc/Modifly"
+
 function App(){
     return(
         <>
@@ -40,6 +42,9 @@ function App(){
                     <Route path = "/Deldoc" element={<Deldoc/>}/>
                     <Route path = "/Delclinic" element={<Delclinic/>}/>
                     <Route path = "/ModDoc" element={<Moddoc/>}/>
+                    
+                    <Route path = "/Mo" element={<Mod />}/>
+
                     <Route path= '*' element ={<NoPage/>}/>
                     
                     

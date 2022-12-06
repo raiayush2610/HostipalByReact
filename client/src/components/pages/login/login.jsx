@@ -59,7 +59,7 @@ function Login(){
                 <input onChange={e => {setEmail(e.target.value)}} className="bottom" type="email" placeholder ="E-mail"/>
                 {(email == null) ? <span>please enter the details</span> : <span></span>} 
                 <input onChange={e => {setPassword(e.target.value)}} className="bottom" type="password" placeholder ="Password" autoComplete="false"/>
-                <button onClick={handleLogin} className=" btn btn-lg btn-primary" id="login-button">Login </button> 
+                <button onClick={e=>{e.preventDefault()}} className=" btn btn-lg btn-primary" id="login-button">Login </button> 
             </form>
             <p className="log-p">New to this website, <NavLink to = "/register">Register</NavLink></p>
             
