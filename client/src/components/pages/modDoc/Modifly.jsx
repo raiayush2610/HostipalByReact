@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import axios from 'axios';
 import Sidebar from '../../Sidebar/Sidebar'
+import { useNavigate } from 'react-router-dom';
 import './mod.css'
 import {Location, useLocation} from 'react-router-dom';
 function Modifly(){
@@ -12,6 +13,7 @@ function Modifly(){
   const [Upadetedtesxt,setUpadetedtext] = useState(" ")
   const [doctorid,setDoctorid] = useState('');
   const [docflied,setDocfliedname] = useState('');
+  const navigate = useNavigate();
   // const [isChecked, setIsChecked] = useState(false)
 
   const reloadPage = () => {
@@ -47,19 +49,28 @@ const UpdateDoctor = async(e)=>{
     switch (placeholder) {
       case ("docName"):
         // console.log("value "+Upadetedtesxt);
-          const res =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docName:Upadetedtesxt}).then(console.log("succefully"))
+          const res =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docName:Upadetedtesxt}).then(navigate("/ModDoc"))
+          
           break;
       case "docplace":
-        const res1 =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docplace:Upadetedtesxt}).then(console.log("succefully"))
+        const res1 =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docplace:Upadetedtesxt}).then(navigate("/ModDoc"))
+     
           break;
       case "docSpecilization":
         console.log("dsfhsd");
-        const res2 =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docSpecilization:Upadetedtesxt}).then(console.log("succefully"))
+        const res2 =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docSpecilization:Upadetedtesxt}).then(navigate("/ModDoc"))
+       
           break;   
+      case "Year":
+        console.log("year");
+        const res3 =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{Year:Upadetedtesxt}).then(navigate("/ModDoc"))
+        
+          break;     
       default:
           console.log("no");
           break;
   }
+ 
   
 
    
@@ -76,18 +87,12 @@ const UpdateDoctor = async(e)=>{
     
     <Sidebar/>
 
+    {/* <div className='admin'> */}
     <div className='admin'>
-{/* 
-    <h1>{Doctors.docName}</h1>
-    <h1>{Doctors.docplace}</h1>
-    <h1>{Doctors.docName}</h1>
-    <h1>{Doctors.docSpecilization}</h1>
-    <h1>{Doctors.Year}</h1> */}
       <h5> Modifly the paticular item</h5>
-    
+    </div>
+   
     <div className="patlist">
- 
-    
       <form className='form-doc'>
             <input type="radio" value="docName"  id='docname' 
               onClick={handleChange} name="docName"  
@@ -102,20 +107,24 @@ const UpdateDoctor = async(e)=>{
             <input type="radio" value="docSpecilization" 
               onChange={handleChange} name="docSpecilization"/>
             <label for="docSpecilization">docSpecilization</label>
+            <input type="radio" value="Year" 
+              onChange={handleChange} name="docSpecilization"/>
+            <label for="docSpecilization">Year</label>
          </form>
-
+    </div>    
+    <div className="sumit-form">
         <form className=''>
         {/* <input type="text" className="bottom"  name ="ayush"  placeholder ={Whattesxt} autoComplete="false"/> */}
-        <label for="uniqe">This {Whattesxt} is have to Modifly:-</label>
-        <input type="text" className="bottom" id='uniqe' name ="ayush" onChange={e=>{setUpadetedtext(e.target.value)}} placeholder ={Whattesxt} autoComplete="false"/>
-        <button type="submit" onClick={e=>{e.preventDefault() ; UpdateDoctor()}} >Submit</button>
+        <label for="uniqe">This Text is have to Modifly:-</label>
+        <input type="text" className="text-flied" id='uniqe' name ="ayush" onChange={e=>{setUpadetedtext(e.target.value)}} placeholder ={Whattesxt} autoComplete="false"/>
+        <button type="submit" className='del' onClick={e=>{e.preventDefault() ; UpdateDoctor()}} >Submit</button>
       
         </form>
          <p>what is your press is --{'>'} {Whattesxt}</p>
          <p>You type  --{'>'} {Upadetedtesxt}</p>
-     
     </div>
-    </div>
+    
+  {/* </div> */}
     </>
   )
 }

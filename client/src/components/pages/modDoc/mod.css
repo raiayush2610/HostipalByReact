@@ -1,0 +1,45 @@
+/* .form-doc{
+          margin: 20px 20px 20px;
+}
+.text-flied{
+       margin: 0;
+       padding-bottom: 25px;   
+} */
+.patlist{
+          position: absolute;
+          top: 45px;
+          left: 225px;
+
+}
+.sumit-form{
+          position: relative;
+          top: 300px;
+          left: 225px;
+}
+.sumit-form label{
+          position: absolute;
+          padding: 0;     
+}
+.sumit-form input{
+          margin: 0 0 10px 199px;
+}
+.form-doc  label{
+          position: absolute;
+          left: 15px;
+}
+.form-doc  input{
+          margin: 25px 15px 15px 15px;
+          
+}
+.form-doc input[type=radio]{
+       position: relative;
+       animation-name: one;
+       cursor:pointer;
+       top: 35px;
+       left: 125px;
+}
+.form-doc input[type=radio]::after{
+       border: solid white;
+       color: green;
+}
+
