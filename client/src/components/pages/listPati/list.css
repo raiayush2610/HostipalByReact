@@ -1,10 +1,11 @@
 .patlist{
           position: absolute;
-           left: 60px;
+          left: 0;
            top: 45px;
 }
+
 #customers {
-          margin: 45px 0 0 0 ;
+          margin: 35px 0 0 0 ;
           font-family: Arial, Helvetica, sans-serif;
           border-collapse: collapse;
           width: 20%;

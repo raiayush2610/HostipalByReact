@@ -28,4 +28,8 @@
       .admin{
         position: absolute;
          left: 160px;
-}      
+}   
+.main-sidebar ul{
+    list-style-type: none
+
+}   

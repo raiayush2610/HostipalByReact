@@ -18,6 +18,8 @@ import Delclinic from "./pages/delCinic/Delclinic";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Listpat from "./pages/listPati/Listpat";
 import Moddoc from "./pages/modDoc/Moddoc";
+import ModiflyPat from "./pages/delPat/ModiflyPat";
+import Modclinic from "./pages/delCinic/modclinic";
 
 import Mod from "./pages/modDoc/Modifly"
 
@@ -39,12 +41,15 @@ function App(){
                     <Route path = "/Lisclinic" element={<Listcinic/>}/>
                     <Route path = "/LisDoc" element={<Listdoc/>}/>
                     <Route path = "/Delpatient" element={<Delpat/>}/>
+                    <Route path = "/Delpatient" element={<Delpat/>}/>
+                    <Route path = "/Modpatient" element={<Delpat/>}/>
                     <Route path = "/Deldoc" element={<Deldoc/>}/>
                     <Route path = "/Delclinic" element={<Delclinic/>}/>
+                    <Route path = "/Modclinic" element={<Delclinic/>}/>
                     <Route path = "/ModDoc" element={<Moddoc/>}/>
-                    
                     <Route path = "/Mo" element={<Mod />}/>
-
+                    <Route path = "/Po" element={<ModiflyPat />}/>
+                    <Route path = "/Co" element={<Modclinic />}/>
                     <Route path= '*' element ={<NoPage/>}/>
                     
                     

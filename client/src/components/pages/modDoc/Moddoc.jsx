@@ -4,41 +4,25 @@ import { Navigate, Navigator, useNavigate } from 'react-router-dom';
 import Sidebar from '../../Sidebar/Sidebar'
 
 function Moddoc(props) {
-        const id= 5;
+       
         const navigate = useNavigate();
-          const [Doctors,setDoctor]= useState([]);
-           
-          const [isUpdating, setisUpdating] = useState('');
-         
-
-         
-          const getDoctor =async() =>{
-                    try {
-                         const res= await axios.get(`http://localhost:4000/Doc/api/doctors`).then((res)=> setDoctor(res.data))
-                           
-                    } catch (error) {
-                              console.log("rffgg"+error);
-                              
-                    }
-          }
-          useEffect(()=>{
+        const [Doctors,setDoctor]= useState([]);
+        const getDoctor =async() =>{
+                    try {const res= await axios.get(`http://localhost:4000/Doc/api/doctors`).then((res)=> setDoctor(res.data))}
+                    catch (error) {console.log(error);}
+                }
+        useEffect(()=>{
                     getDoctor()
-          },[])
-      const jump = async(id)=>{
-        try {
-                navigate("/Mo",{state: {id : id}});
-        } catch (error) {
-                console.log(error);
+        },[])
+        const jump = async(id)=>{
+                try {navigate("/Mo",{state: {id : id}});}
+                catch (error) {console.log(error);}
         }
-      }
            
-  return (
-        
-          <>
-          <Sidebar/>
+  return (<>
+        <Sidebar/>
         <div className='admin'>
                 <div className="patlist">
-                
                         <summary>Here are the list of all Doctor</summary>
                         {Doctors == null  ? <h1>null</h1> : 
                         <table id="customers" >

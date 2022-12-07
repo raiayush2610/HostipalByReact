@@ -3,21 +3,16 @@ import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
 import Sidebar from "../../Sidebar/Sidebar";
-import "./list.css"
+// import "./list.css"
+import './list.css'
 
 function Listpat() {
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
-                    try {
-                              const res = await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));
-                    } catch (error) {
-                           console.log(error);   
-                    }
-                    
+                    try {const res = await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
+                     catch (error) {console.log(error);}        
           }
-          useEffect(()=>{
-                    getPatient()
-          },[])
+          useEffect(()=>{getPatient()},[])
   return (
           <>
           <Sidebar/>

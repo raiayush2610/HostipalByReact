@@ -12,31 +12,21 @@ function Modifly(){
   const [Whattesxt,setWhattesxt] = useState('')
   const [Upadetedtesxt,setUpadetedtext] = useState(" ")
   const [doctorid,setDoctorid] = useState('');
-  const [docflied,setDocfliedname] = useState('');
+  
   const navigate = useNavigate();
   // const [isChecked, setIsChecked] = useState(false)
 
-  const reloadPage = () => {
-    window.location.reload()
-  }
+ 
   const  handleChange=(e)=>{
     e.preventDefault(e);
         const Value = e.target.value
         setWhattesxt(Value)
-
   }
-
   const getDoctor =async() =>{
-    try {
-      const id = location.state.id;
+    try {const id = location.state.id;
       setDoctorid(id)
-         const res= await axios.get(`http://localhost:4000/Doc/api/doctor/${id}`).then((res)=> setDoctor(res.data))
-        // const res = await axios.delete(`http://localhost:4000/Doc/api/doctors/${id}`)
-           
-    } catch (error) {
-              console.log(error);
-              alert("id is not found!")
-    }
+         const res= await axios.get(`http://localhost:4000/Doc/api/doctor/${id}`).then((res)=> setDoctor(res.data))}
+          catch (error) {console.log(error);alert("id is not found!")}
 }
 useEffect(()=>{
     getDoctor()
@@ -48,7 +38,7 @@ const UpdateDoctor = async(e)=>{
     
     switch (placeholder) {
       case ("docName"):
-        // console.log("value "+Upadetedtesxt);
+        
           const res =await axios.put(`http://localhost:4000/Doc/updated/doctors/${doctorid}`,{docName:Upadetedtesxt}).then(navigate("/ModDoc"))
           
           break;
@@ -69,11 +59,7 @@ const UpdateDoctor = async(e)=>{
       default:
           console.log("no");
           break;
-  }
- 
-  
-
-   
+  } 
 
   } catch (error) {
           console.log(error);
@@ -88,11 +74,10 @@ const UpdateDoctor = async(e)=>{
     <Sidebar/>
 
     {/* <div className='admin'> */}
-    <div className='admin'>
-      <h5> Modifly the paticular item</h5>
-    </div>
+    
    
     <div className="patlist">
+    <h5> Modifly the paticular item</h5>
       <form className='form-doc'>
             <input type="radio" value="docName"  id='docname' 
               onClick={handleChange} name="docName"  

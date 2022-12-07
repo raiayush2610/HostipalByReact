@@ -27,7 +27,7 @@
           position: absolute;
           left: 15px;
 }
-.form-doc  input{
+.form-doc input{
           margin: 25px 15px 15px 15px;
           
 }
@@ -35,8 +35,8 @@
        position: relative;
        animation-name: one;
        cursor:pointer;
-       top: 35px;
-       left: 125px;
+       top: 45px;
+       left: 200px;
 }
 .form-doc input[type=radio]::after{
        border: solid white;

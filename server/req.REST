@@ -18,7 +18,18 @@ PUT http://localhost:4000/Doc/updated/doctors/6388bb751de4815aff25fff2
 Content-Type: application/json
 
 {
-        
-       
         "docplace" : "allahabad"
 }
+###
+GET http://localhost:4000/Pat/Patients 
+Content-Type: application/json
+###
+PUT http://localhost:4000/Pat/updated/patient/6388f439406c3e8f9168d0dc
+Content-Type: application/json
+
+{
+        
+       
+        "patientPlace" : "allahabad"
+}
+

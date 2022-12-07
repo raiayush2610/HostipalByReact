@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Sidebar from '../../Sidebar/Sidebar'
-import Tablecilnic from './tablecilnic';
+
 function Listcinic() {
   const [Cinics,setCilinic]= useState([]);
   const getCilic = async ()=>{

@@ -46,6 +46,16 @@ Patroute.put('/api/Patients/:id', async (req, res)=>{
               res.json(error)
           }
 })
+Patroute.put('/updated/patient/:id', async(req,res)=>{
+    console.log("Patient updated request is working");
+    console.log(req.params.id);
+    console.log(req.body);
+    try {
+         const updatePat= await Patient.findByIdAndUpdate(req.params.id,{$set: req.body})
+    } catch (error) {
+        console.log(error);
+    }
+})
 Patroute.delete('/api/Patients/:_id', async (req,res)=>{
         //   console.log(req.params._id);
           

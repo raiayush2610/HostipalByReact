@@ -34,7 +34,10 @@ Deptroute.get('/api/reacherDepts', async (req, res)=>{
          }
 })
 Deptroute.put('/api/reacherDepts/:id', async (req, res)=>{
+        console.log("cilics modifly is working");
           console.log(req.params.id);
+
+          console.log(req.body);
           try {
               const updateDept = await Department.findByIdAndUpdate(req.params.id, {$set: req.body});
               res.status(200).json("Update successfully");
