@@ -8,13 +8,13 @@
 .patlist{
           position: absolute;
           top: 45px;
-          left: 225px;
+          left: 125px;
 
 }
 .sumit-form{
           position: relative;
           top: 300px;
-          left: 225px;
+          left: 125px;
 }
 .sumit-form label{
           position: absolute;
@@ -25,21 +25,10 @@
 }
 .form-doc  label{
           position: absolute;
-          left: 15px;
+          padding: 0;
 }
-.form-doc input{
-          margin: 25px 15px 15px 15px;
-          
-}
-.form-doc input[type=radio]{
-       position: relative;
-       animation-name: one;
-       cursor:pointer;
-       top: 45px;
-       left: 200px;
-}
-.form-doc input[type=radio]::after{
-       border: solid white;
-       color: green;
+.form-doc  input{
+          margin: 15px 15px 15px 15px;
+          top:5px;
 }
 

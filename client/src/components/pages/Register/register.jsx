@@ -27,22 +27,23 @@ function Register (){
 
 
   return (
-    <div>
-    {/* <Header /> */}
-      <h1 className='heading-h1'>Register</h1>
-
-      
     
-      <form className="top">
+    
+    <div className="register">
+      {/* <Header /> */}
+      
+
+      <form className="register-form">
+      <h1 className='heading-h1'>Register</h1>
         <input className = "form-input" type="text" placeholder="First Name" name="fName" onChange={(e)=>{setFname(e.target.value)}}/>
         <input className = "form-input" type="text" placeholder="Last Name" name="lName" onChange={(e)=>{setLname(e.target.value)}}/>
         <input className = "form-input" type="email" placeholder="email" name="email" onChange={(e)=>{setEmail(e.target.value)}}/>
         <input className = "form-input" type="password" placeholder="Password" name="password" onChange={(e)=>{setPassword(e.target.value)}} autoComplete = "false"/>
-        <button className = "form-button btn btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}><NavLink to = "/login">submit</NavLink></button>
+        <button className = " btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}><NavLink to = "/login">submit</NavLink></button>
       </form>
-
-    </div>
       
+    </div>
+    
       
     
     

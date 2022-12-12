@@ -14,7 +14,7 @@ function Login(){
     const [pas,setpas] = useState(null);
     const navigate = useNavigate();
     const handleLogin = async(e) => {
-        e.preventDefault();
+       
         try {
             const res = await axios.post(`http://localhost:4000/api/entries`,
                 {
@@ -24,6 +24,7 @@ function Login(){
                 )
                 
                 resp = res.data;
+                // console.log(res.data);
             if(res.data === "no"){
                 return Toast.error("This email  is not registered with us ")
 
@@ -34,6 +35,7 @@ function Login(){
              } 
             else{
                 if(res.data=== email){
+                    console.log(email);
                     resp = email
                     console.log(email);
                     // navigate("/Sucees");
@@ -59,7 +61,7 @@ function Login(){
                 <input onChange={e => {setEmail(e.target.value)}} className="bottom" type="email" placeholder ="E-mail"/>
                 {(email == null) ? <span>please enter the details</span> : <span></span>} 
                 <input onChange={e => {setPassword(e.target.value)}} className="bottom" type="password" placeholder ="Password" autoComplete="false"/>
-                <button onClick={e=>{e.preventDefault()}} className=" btn btn-lg btn-primary" id="login-button">Login </button> 
+                <button onClick={e=>{handleLogin(e.preventDefault());}} className=" btn btn-lg btn-primary" id="login-button">Login </button> 
             </form>
             <p className="log-p">New to this website, <NavLink to = "/register">Register</NavLink></p>
             

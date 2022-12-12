@@ -17,7 +17,7 @@ docrouter.post('/doctor', async (req, res)=>{
                     })    
                     // save
           const save = await newDoctor.save()
-                   console.log(newDoctor);
+                //    console.log(newDoctor);
           } catch (error) {
           console.log("feff"+error); 
           }
@@ -46,8 +46,9 @@ docrouter.get('/api/doctor/:id',async(req,res)=>{
     }
 })
 docrouter.put('/updated/doctors/:id', async (req, res)=>{
-          console.log(req.params.id);
-          console.log(req.body);
+    console.log("update post is working");
+        //   console.log(req.params.id);
+        //   console.log(req.body);
         console.log('doctor updated request is working');
           try {
               const updateDept = await Doctor.findByIdAndUpdate(req.params.id, {$set: req.body});
