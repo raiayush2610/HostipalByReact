@@ -1,10 +1,12 @@
 const Patroute = require('express').Router();
 const Patient = require('../models/patiModel');
-
+const _ = require('lodash');
 Patroute.post('/Patient', async (req, res)=>{
           try {
             // console.log("Patient port is clicked");
             console.log(req.body.patBlood);
+           var  place =  _.toLower(req.body.place);
+
           const newPatient = new Patient({
                     patientName: req.body.patName,
                     patientAge: req.body.patAge,
@@ -13,7 +15,7 @@ Patroute.post('/Patient', async (req, res)=>{
                     patientEmail: req.body.patEmail,
                     patientBlood: req.body.patBlood,
                     patientNumber: req.body.patNumber,
-                    patientPlace: req.body.place 
+                    patientPlace: place 
                     })    
                     // save
           const save = await newPatient.save()

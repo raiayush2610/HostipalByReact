@@ -1,0 +1,14 @@
+/* .area-selector{
+         position: relative;
+          top: 5px;
+          left:390px;
+          top: px;
+         width: 250px;
+} */
+.fex{
+          display: flex;
+          margin: 0;
+}
+.search-btn{
+          display: flex;
+}

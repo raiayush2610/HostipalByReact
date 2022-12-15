@@ -109,6 +109,7 @@ function Doctor() {
                                     <option value="Uttarakhand">Uttarakhand</option>
                                     <option value="West_Bengal">West Bengal</option>
                             </select>
+                            {console.log()}
     </div>
 
 

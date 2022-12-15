@@ -1,43 +1,51 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import{resp} from "../login/login";
+import { useLocation ,useNavigate} from 'react-router-dom';
+import './succes.css'
 import SuccessHeader from "./successHeader";
 import Item from "./listItem";
+
 let foundEntry = {}
+
 function Success(){
+    const location =useLocation();
     const [entries, setEntries] = useState([]);
-     const [area, setArea] = useState("");
+     const [Area, setArea] = useState(" ");
+     const emails = location.state.email1;
+    
     useEffect(() => {
             async function getEntry(){
             try {
                 const res = await axios.get("http://localhost:4000/api/entries")
                 setEntries(res.data);
-            } catch (error) {
-                console.log(error)
-            }
+            } catch (error) {console.log(error)}
+            
         }
+
         getEntry();
       }, []);
 
       entries.forEach(entry => {
-        if(entry.email === resp){
+        if(entry.email === emails){
             foundEntry = entry
         }
 
       })
+      const Search =()=>{
+        console.log(Area);
+    }
+    
 
-    //   console.log(foundEntry);
+    
 
-const  setName = (name) => {
-    setArea(name)
-}
+      
         
     return(
         <div className="success">
             <SuccessHeader name = {(foundEntry.fName)}/>
-            <div className="row">
+            <div className="row fex">
                 <div className="col-lg-4">
-                    <div className="card">
+                    <div className="card ">
                         <div className="card-body">
                             <h5 className="card-title">Basic Info</h5>
                             <h6 className="info">First Name:  </h6> <p className="info">{foundEntry.fName}</p><br/>
@@ -61,41 +69,43 @@ const  setName = (name) => {
                 </div>
             </div>
             <div className="area-selector">
-                <h2 style={{"display": "inline-block", "margin-right": "15px"}}>Select your area:</h2>
-                <h2 class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {area}
-                            </h2>
-                            <ul class="dropdown-menu">
-                                {/* <Item onClick = {setName("Andhra Pradesh")} name = "Andhra Pradesh"/>
-                                <Item onClick = {setName("Arunachal Pradesh")} name = "Arunachal Pradesh"/>
-                                <Item onClick = {setName("Assam")} name = "Assam"/>
-                                <Item onClick = {setName("Bihar")} name = "Bihar"/>
-                                <Item onClick = {setName("Chhaittisgarh")} name = "Chhaittisgarh"/>
-                                <Item onClick = {setName("Goa")} name = "Goa"/>
-                                <Item onClick = {setName("Gujrat")} name = "Gujrat"/>
-                                <Item onClick = {setName("Hariyana")} name = "Hariyana"/>
-                                <Item onClick = {setName("Himachal Pradesh")} name = "Himachal Pradesh"/>
-                                <Item onClick = {setName("Jharkhand")} name = "Jharkhand"/>
-                                <Item onClick = {setName("Karnataka")} name = "Karnataka"/>
-                                <Item onClick = {setName("Kerala")} name = "Kerala"/>
-                                <Item onClick = {setName("Madhya Pradesh")} name = "Madhya Pradesh"/>
-                                <Item onClick = {setName("Maharashtra")} name = "Maharashtra"/>
-                                <Item onClick = {setName("Manipur")} name = "Manipur"/>
-                                <Item onClick = {setName("Meghalaya")} name = "Meghalaya"/>
-                                <Item onClick = {setName("Mizoram")} name = "Mizoram"/>
-                                <Item onClick = {setName("Nagaland")} name = "Nagaland"/>
-                                <Item onClick = {setName("Odisha")} name = "Odisha"/>
-                                <Item onClick = {setName("Punjab")} name = "Punjab"/>
-                                <Item onClick = {setName("Rajasthan")} name = "Rajasthan"/>
-                                <Item onClick = {setName("Sikkim")} name = "Sikkim"/>
-                                <Item onClick = {setName("Tamil Nadu")} name = "Tamil Nadu"/>
-                                <Item onClick = {setName("Telangana")} name = "Telangana"/>
-                                <Item onClick = {setName("Uttar Pradesh")} name = "Uttar Pradesh"/>
-                                <Item onClick = {setName("Uttarakhand")} name = "Uttarakhand"/>
-                                <Item onClick = {setName("West Bengal")} name = "West Bengal"/> */}
-
-                                
-                            </ul>
+                                 <div className="search-btn">
+                                    <div><h5>Setect the State</h5> </div>
+                                    <div><button onClick={e=>{Search(e.preventDefault())}}>Search Again</button></div>
+                                 </div>
+                                   
+                            <select name="state" id="state"  onChange={(e)=>{setArea(e.target.value)}}class="form-control bottom ">
+                               
+                                <option value="">State / UT *</option>
+                                <Item  name = "Andhra Pradesh"/>
+                                <Item  name = "Arunachal Pradesh"/>
+                                <Item  name = "Assam"/>
+                                <Item  name = "Bihar"/>
+                                <Item  name = "Chhaittisgarh"/>
+                                <Item  name = "Goa"/>
+                                <Item  name = "Gujrat"/>
+                                <Item  name = "Hariyana"/>
+                                <Item  name = "Himachal Pradesh"/>
+                                <Item  name = "Jharkhand"/>
+                                <Item  name = "Karnataka"/>
+                                <Item  name = "Kerala"/>
+                                <Item  name = "Madhya Pradesh"/>
+                                <Item  name = "Maharashtra"/>
+                                <Item  name = "Manipur"/>
+                                <Item  name = "Meghalaya"/>
+                                <Item  name = "Mizoram"/>
+                                <Item  name = "Nagaland"/>
+                                <Item  name = "Odisha"/>
+                                <Item  name = "Punjab"/>
+                                <Item  name = "Rajasthan"/>
+                                <Item  name = "Sikkim"/>
+                                <Item name = "Tamil Nadu"/>
+                                <Item  name = "Telangana"/>
+                                <Item  name = "Uttar Pradesh"/>
+                                <Item  name = "Uttarakhand"/>
+                                <Item  name = "West Bengal"/> 
+                                </select>
+                                                
             </div>
         </div>
     )

@@ -1,9 +1,13 @@
 import React from "react";
 
 function Item(props){
+    const hangle =()=>{
+        console.log("click");
+    }
     return(
-        <li><p class="dropdown-item">{props.name}</p></li>
+        <option  value={props.name}onClick={hangle}>{props.name}</option>
     )
+    console.log(props.name);
 }
 
 export default Item;

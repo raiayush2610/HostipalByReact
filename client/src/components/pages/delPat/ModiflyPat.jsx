@@ -72,7 +72,7 @@ function ModiflyPat() {
           useEffect(()=>{getPatient()},[])
   return (
           <>
-          <Sidebar/>
+        
 
           {/* <div className='admin'> */}
           

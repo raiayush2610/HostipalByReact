@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
 import Sidebar from "../../Sidebar/Sidebar";
+import { IsEmpty, Map } from "react-lodash"
 // import "./list.css"
 import './list.css'
 
@@ -43,8 +44,24 @@ function Listpat() {
                                                           
                                         </tr>
                                         ))}
+
                     </table>
                     </details>
+                    {/* <IsEmpty value ={Patients}
+                    yes="EmptyList"
+                    no={()=>(
+                        <tr>
+                        <Map collection={Patients} iteratee={ pat =>{(pat.patientName == null) ?  <td>null</td> : <td>{pat.patientName}</td>}} />
+                        <Map collection={Patients} iteratee={ pat =>{(pat.patientAge == null) ?  <td>null</td> : <td>{pat.patientAge}</td>}} />
+                        <Map collection={Patients} iteratee={ pat =>{(pat.patientSex == null) ?  <td>null</td> : <td>{pat.patientSex}</td>}} />
+                        <Map collection={Patients} iteratee={ pat =>{(pat.patientBlood == null) ?  <td>null</td> : <td>{pat.patientBlood }</td>}} />
+                         </tr>
+                        
+                    )
+
+                    }>
+
+                    </IsEmpty> */}
                 </div>
           </div>
           </>

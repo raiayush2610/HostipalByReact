@@ -1,9 +1,9 @@
 import React, { useState ,useEffect} from 'react'
 import axios from 'axios';
-import Sidebar from '../../Sidebar/Sidebar'
-import { useNavigate } from 'react-router-dom';
+
+import { useLocation ,useNavigate} from 'react-router-dom';
+
 import './mod.css'
-import {Location, useLocation} from 'react-router-dom';
 function Modifly(){
   
   
@@ -71,8 +71,7 @@ const UpdateDoctor = async(e)=>{
     <>
     
     
-    <Sidebar/>
-
+   
     {/* <div className='admin'> */}
     
    
