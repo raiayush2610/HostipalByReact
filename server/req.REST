@@ -33,3 +33,11 @@ Content-Type: application/json
         "patientPlace" : "allahabad"
 }
 
+###
+GET http://localhost:4000/Doc/doc/allahabad
+Content-Type: application/json
+
+###
+ 
+GET http://localhost:4000/reacherDept/dept/Andaman
+Content-Type: application/json

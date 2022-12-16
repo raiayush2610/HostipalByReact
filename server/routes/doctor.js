@@ -57,6 +57,23 @@ docrouter.put('/updated/doctors/:id', async (req, res)=>{
               res.json(error)
           }
 })
+docrouter.get('/doc/:place',async(req,res)=>{
+    // console.log("doctor by place is working");
+    const place =req.params.place
+    console.log(place);
+    try {
+        let query = await Doctor.find({docplace: place})
+        if (query === null) {
+            // console.log("emplu");
+            res.json("Empty")
+            
+        } else {
+            res.json(query)
+        }
+    } catch (error) {
+        console.log(error);
+    }
+})
 docrouter.delete('/api/doctors/:_id', async (req,res)=>{
         //   console.log(req.params._id);
         //   console.log("doctor delete route is working");

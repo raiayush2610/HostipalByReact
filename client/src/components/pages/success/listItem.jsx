@@ -5,9 +5,9 @@ function Item(props){
         console.log("click");
     }
     return(
-        <option  value={props.name}onClick={hangle}>{props.name}</option>
+        <option  value={props.name}>{props.name}</option>
     )
-    console.log(props.name);
+    
 }
 
 export default Item;

@@ -45,6 +45,21 @@ Deptroute.put('/api/reacherDepts/:id', async (req, res)=>{
               res.json(error)
           }
 })
+Deptroute.get('/dept/:place',async(req,res)=>{
+    console.log("cilins by place is working");
+    const place = req.params.place
+    console.log(place);
+    try {
+        let query =await Department.find({departmentArea: place})
+        if (query === null) {
+            res.json("Empty")
+        } else {
+            res.json(query)
+        }
+    } catch (error) {
+        console.log(error);
+    }
+})
 Deptroute.delete('/api/reacherDepts/:_id', async (req,res)=>{
           console.log(req.params._id);
           console.log("Deptament delete route is working");
