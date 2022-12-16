@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
 function Patient() {
+  const location =useLocation();
   const [patName,setpatName]= useState('');
   const [patAge,setpatAge]= useState( );
   const [patSex,setpatSex]= useState('');
@@ -11,11 +13,23 @@ function Patient() {
   const [patno,setpatno]= useState();
   const [patState,setpatState]= useState();
   const [entry,setEntry]= useState([]);
+  const navigate = useNavigate();
+  const [email,setEmail] = useState('');
+  const Email = location.state.email1;
+  const First_Name = location.state.fName;
+  const Last_Name = location.state.lName
+  // console.log(location.state.email1);
+ 
+  // setEmail(Email)
+  // console.log("set"+email);
+  // console.log(location.state.fName);
+  // console.log(location.state.lName);
   const addItem = async() => {
     //  e.preventDefault();
-    
+    setEmail(Email)
      try {
       console.log(patBlood);
+     
        const res = await axios.post(`http://localhost:4000/Pat/Patient`,
        {
         patName: patName,
@@ -27,7 +41,8 @@ function Patient() {
         place:patState
       })
         setEntry((prev) => [...prev, res.data]);
-       
+        console.log(email);
+        navigate("/success",{state: {email1 : Email}});
      } catch (error) {
        console.error(error);
      }
@@ -41,11 +56,11 @@ function Patient() {
       <h1 class="h3 mb-3 mb-4 fw-normal">Patient Form </h1>   
   
       <div class="form-floating">
-        <input type="text" name="patName" class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
+        <input type="text" name="patName" value={First_Name + " " + Last_Name} class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
         <label htmlFor="floatingInput1">Patient Full name:</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patAge" class="form-control bottom" id="floatingInput2" placeholder="Patient's Age" onChange={(e)=>{setpatAge(e.target.value)}}required/>
+        <input type="text" name="patAge"  class="form-control bottom" id="floatingInput2" placeholder="Patient's Age" onChange={(e)=>{setpatAge(e.target.value)}}required/>
         <label htmlFor="floatingInput2">Patient's Age</label>
       </div>
       <div class="form-floating">

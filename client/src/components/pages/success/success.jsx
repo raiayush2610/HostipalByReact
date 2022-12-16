@@ -29,14 +29,14 @@ function Success(){
         async function getCinicPlace(){
             try {
                 if (Area === null) {
-                    console.log("null");
+                    setcilitem(0)
                 }
                 else{
                     const cils = await axios.get(`http://localhost:4000/reacherDept/dept/${Area}`)
                     console.log(cils.data)
                     if (cils.data==="Empty") {
                         console.log("yes");
-                        
+                        setcilitem(0)
                     }
                      else {
                         if (cils.data.length === 0) {
@@ -57,14 +57,12 @@ function Success(){
             // console.log(Area);
             try {
                     if (Area === null) {
-                        // console.log("null");
+                        setitem(0)
                     }
                     else{
                         const res = await axios.get(`http://localhost:4000/Doc/doc/${Area}`)
-                        // .then((res)=>setdocArea(res.data));
                         if (res.data==="Empty") {
-                            // console.log("yes");
-                            
+                            setitem(0)
                         } else {
                             if (res.data.length === 0) {
                                 console.log("Array is null");
@@ -77,7 +75,6 @@ function Success(){
                     } 
                     }catch (error) {console.log(error)}
                 }
-
         getEntry();
         getDoctorPlace();
         getCinicPlace()
@@ -87,7 +84,6 @@ function Success(){
         if(entry.email === emails){
             foundEntry = entry
         }
-
       })
     
 //    console.log(docArea);
@@ -98,10 +94,7 @@ function Success(){
     return(
         
         <div className="success">
-            <SuccessHeader name = {(foundEntry.fName)}/>
-            
-             
-           
+            <SuccessHeader name = {(foundEntry.fName)} lName ={foundEntry.lName}/>
             <div className="row fex">
                 <div className="col-lg-4">
                 <Card fName= {foundEntry.fName} lName ={foundEntry.lName} email={foundEntry.email}/>
@@ -113,12 +106,8 @@ function Success(){
                                <option value="">State / UT * </option>
                                 <Item  name = "Andhra Pradesh"/><Item  name = "Andaman"/><Item  name = "Arunachal Pradesh"/><Item  name = "Assam"/><Item  name = "Bihar"/><Item  name = "Chhaittisgarh"/><Item  name = "Goa"/><Item  name = "Gujrat"/><Item  name = "Hariyana"/><Item  name = "Himachal Pradesh"/><Item  name = "Jharkhand"/><Item  name = "Karnataka"/><Item  name = "Kerala"/><Item  name = "Madhya Pradesh"/><Item  name = "Maharashtra"/><Item  name = "Manipur"/><Item  name = "Meghalaya"/><Item  name = "Mizoram"/><Item  name = "Nagaland"/><Item  name = "Odisha"/><Item  name = "Punjab"/><Item name ="Puducherry"/><Item  name = "Rajasthan"/><Item  name = "Sikkim"/><Item  name = "Tamil Nadu"/><Item  name = "Telangana"/><Item  name = "Uttar Pradesh"/><Item  name = "Uttarakhand"/><Item  name = "West Bengal"/> 
                     </select>
-                               
-                                                
             </div>
-            {console.log(doitem)}
             <DocPlace place = {(Area)}/>
-            
             <div className="doc-place">
             {(doitem === 1) ?  
             <table id="customers" >
@@ -140,15 +129,11 @@ function Success(){
             </div>
             <CiliniPlace place ={(Area)}/>
             <div className="doc-place">
-               
                 {(cilitem === 1) ?
             <table id="customers" >
                     <tr><th>Name of Department</th><th>Department Head</th><th>Department Area</th><th>No of Employment</th><th>Department Phoneno</th><th>Opening Time</th><th>ClosingTime</th></tr>
-                  
                     {cilAreas.map((cil=>
-                    
                     <tr>
-                    
                       {(cil.departmentName == null) ?  <td>null</td> : <td>{cil.departmentName}</td>}
                       {(cil.departmentHead == null) ?  <td>null</td> : <td>{cil.departmentHead}</td>}
                       {(cil.departmentArea == null) ?  <td>null</td> : <td>{cil.departmentArea}</td>}
@@ -156,7 +141,6 @@ function Success(){
                       {(cil.departmentphoneno== null) ?  <td>null</td> : <td>{cil.departmentphoneno}</td>}
                       {(cil.DepartmentOpeningtime== null) ?  <td>Unavailable</td> : <td>{cil.DepartmentOpeningtime}</td>}
                       {(cil.DepartmentClosingtime== null) ?  <td>Unavailable </td> : <td>{cil.DepartmentClosingtime}</td>}
-                      
                     </tr> 
                       ))}
                     </table>

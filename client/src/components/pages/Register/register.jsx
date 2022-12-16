@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Header from "../home/navbar";
-import { NavLink } from 'react-router-dom';
+import { NavLink  ,useNavigate} from 'react-router-dom';
 
 function Register (){
   const [fName, setFname] = useState('');
@@ -10,6 +10,7 @@ function Register (){
   const [password, setPassword] = useState();
   const [entries, setEntries] = useState([]);
 
+  const navigate = useNavigate();
 // Add Food Item
    const addItem = async() => {
     //  e.preventDefault();
@@ -18,6 +19,7 @@ function Register (){
         // console.log(res.data);
         setEntries((prev) => [...prev, res.data]);
         // console.log(entries);
+        navigate("/Patient",{state:{email1:email,fName:fName,lName:lName}})
         
 
      } catch (error) {
@@ -39,7 +41,8 @@ function Register (){
         <input className = "form-input" type="text" placeholder="Last Name" name="lName" onChange={(e)=>{setLname(e.target.value)}}/>
         <input className = "form-input" type="email" placeholder="email" name="email" onChange={(e)=>{setEmail(e.target.value)}}/>
         <input className = "form-input" type="password" placeholder="Password" name="password" onChange={(e)=>{setPassword(e.target.value)}} autoComplete = "false"/>
-        <button className = " btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}><NavLink to = "/login">submit</NavLink></button>
+        <button className = " btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Sumbit</button>
+        {/* ><NavLink to = "/Patient">submit</NavLink> */}
       </form>
       
     </div>
