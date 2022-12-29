@@ -86,7 +86,7 @@ function Success(){
         }
       })
     
-//    console.log(docArea);
+   console.log(foundEntry);
     const Search=(e)=>{
         setArea(e.target.value);
        
@@ -110,7 +110,7 @@ function Success(){
             <DocPlace place = {(Area)}/>
             <div className="doc-place">
             {(doitem === 1) ?  
-            <table id="customers" >
+            <table id="cust" >
                         <tr><th>Doctor Full name</th><th>Speclization</th><th>Year of Experience</th><th>Doctor Email</th><th>Doctor Number</th><th>Doctor Area </th></tr>
                         {docAreas.map((doc=>
                         <tr>     
@@ -130,7 +130,7 @@ function Success(){
             <CiliniPlace place ={(Area)}/>
             <div className="doc-place">
                 {(cilitem === 1) ?
-            <table id="customers" >
+            <table id="cust" >
                     <tr><th>Name of Department</th><th>Department Head</th><th>Department Area</th><th>No of Employment</th><th>Department Phoneno</th><th>Opening Time</th><th>ClosingTime</th></tr>
                     {cilAreas.map((cil=>
                     <tr>

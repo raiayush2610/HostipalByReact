@@ -10,6 +10,7 @@ function Card(props) {
                             <h6 className="info">First Name:  </h6> <p className="info">{props.fName}</p><br/>
                             <h6 className="info">Last Name:  </h6> <p className="info">{props.lName}</p><br />
                             <h6 className="info">Email:  </h6> <p className="info">{props.email}</p><br/>
+                            {/* <h6 className="info">Age:  </h6> <p className="info">{props.email}</p><br/> */}
                             <div class="nav-item dropdown">
                             
                             

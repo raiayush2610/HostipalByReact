@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import "./register.css"
 import Header from "../home/navbar";
-import { NavLink  ,useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 function Register (){
   const [fName, setFname] = useState('');
@@ -9,16 +10,16 @@ function Register (){
   const [email,setEmail] = useState();
   const [password, setPassword] = useState();
   const [entries, setEntries] = useState([]);
-
+ 
   const navigate = useNavigate();
 // Add Food Item
    const addItem = async() => {
-    //  e.preventDefault();
+  
      try {
        const res = await axios.post(`http://localhost:4000/api/entry`,{fName: fName, lName: lName, email: email, password: password})
-        // console.log(res.data);
+       
         setEntries((prev) => [...prev, res.data]);
-        // console.log(entries);
+      
         navigate("/Patient",{state:{email1:email,fName:fName,lName:lName}})
         
 
@@ -32,7 +33,7 @@ function Register (){
     
     
     <div className="register">
-      {/* <Header /> */}
+      <Header />
       
 
       <form className="register-form">

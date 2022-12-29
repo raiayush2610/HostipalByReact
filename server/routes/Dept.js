@@ -2,8 +2,8 @@ const Deptroute = require('express').Router();
 const Department = require('../models/deptModel');
 Deptroute.post('/api/reacherDept', async (req, res)=>{
           try {
-            console.log("dept port is working");
-            console.log(req.body.Opentime);
+            
+           
 
           const newDepartment = new Department({
                     departmentName: req.body.name,
@@ -24,7 +24,7 @@ Deptroute.post('/api/reacherDept', async (req, res)=>{
 
 })
 Deptroute.get('/api/reacherDepts', async (req, res)=>{
-          console.log('hello');
+        
          try{
              const reacherDept = await Department.find({});
              res.status(200).json(reacherDept)
@@ -34,10 +34,7 @@ Deptroute.get('/api/reacherDepts', async (req, res)=>{
          }
 })
 Deptroute.put('/api/reacherDepts/:id', async (req, res)=>{
-        console.log("cilics modifly is working");
-          console.log(req.params.id);
-
-          console.log(req.body);
+        
           try {
               const updateDept = await Department.findByIdAndUpdate(req.params.id, {$set: req.body});
               res.status(200).json("Update successfully");
@@ -46,7 +43,7 @@ Deptroute.put('/api/reacherDepts/:id', async (req, res)=>{
           }
 })
 Deptroute.get('/dept/:place',async(req,res)=>{
-    console.log("cilins by place is working");
+   
     const place = req.params.place
     console.log(place);
     try {
@@ -61,7 +58,7 @@ Deptroute.get('/dept/:place',async(req,res)=>{
     }
 })
 Deptroute.delete('/api/reacherDepts/:_id', async (req,res)=>{
-          console.log(req.params._id);
+        //   console.log(req.params._id);
           console.log("Deptament delete route is working");
           try {
               const deleteItem = await Department.deleteOne({_id:req.params._id});

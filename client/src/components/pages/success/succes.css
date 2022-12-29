@@ -1,10 +1,4 @@
-/* .area-selector{
-         position: relative;
-          top: 5px;
-          left:390px;
-          top: px;
-         width: 250px;
-} */
+
 .fex{
           display: flex;
           margin: 0;
@@ -14,4 +8,29 @@
 }
 .doc-place{
           margin: 25px 15px 0 55px ;
+}
+
+#cust {
+          margin: 35px 0 0 0 ;
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 20%;
+          background-color: white;
+}
+
+#cust td, #cust th {
+          border: 1px solid #11c62f;
+          padding: 20px;
+}
+
+
+
+#cust tr:hover {background-color: #ddd;}
+
+#cust th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #200688;
+          color: white;
 }

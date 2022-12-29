@@ -1,0 +1,12 @@
+.register-form input{
+       margin-bottom: 12px;   
+}
+
+@media screen and (max-width: 1220px) {
+          body {
+            background-color: rgb(142, 121, 196);
+          }
+          .register-form input{
+                    margin: 25px 25px 45px 40%;
+          }
+}

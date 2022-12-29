@@ -52,7 +52,7 @@ docrouter.put('/updated/doctors/:id', async (req, res)=>{
         console.log('doctor updated request is working');
           try {
               const updateDept = await Doctor.findByIdAndUpdate(req.params.id, {$set: req.body});
-              console.log(updateDept);
+            //   console.log(updateDept);
           } catch (error) {
               res.json(error)
           }

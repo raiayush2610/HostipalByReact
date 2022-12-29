@@ -6,7 +6,7 @@ import Sidebar from "../../Sidebar/Sidebar";
 import { IsEmpty, Map } from "react-lodash"
 // import "./list.css"
 import './list.css'
-
+const b = 'null'
 function Listpat() {
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
@@ -34,7 +34,7 @@ function Listpat() {
                                                             <td>{pat.patientSex}</td> */}
 
                                                             {/* {(pat.patientBlood == null) ?  <td>null</td> : <td>{pat.patientBlood}</td>} */}
-                                                            {(pat.patientName == null) ?  <td>null</td> : <td>{pat.patientName}</td>}
+                                                            {(pat.patientName == null) ?  <td>{b}</td> : <td>{pat.patientName}</td>}
                                                             {(pat.patientAge == null) ?  <td>null</td> : <td>{pat.patientAge}</td>}
                                                             {(pat.patientSex == null) ?  <td>null</td> : <td>{pat.patientSex}</td>}
                                                             {(pat.patientBlood == null) ?  <td>null</td> : <td>{pat.patientBlood}</td>}

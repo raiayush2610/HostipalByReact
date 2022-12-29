@@ -20,7 +20,7 @@ function Delclinic() {
           const deletehandle= async(id)=>{
                     try {
                               console.log(id);
-                              // /api/reacherDepts/:_id
+                              
                               const res = await axios.delete(`http://localhost:4000/reacherDept/api/reacherDepts/${id}`)
                               const newClinicslist=Clinics.filter(cil=> cil._id !==id);
                               setCilinic(newClinicslist)

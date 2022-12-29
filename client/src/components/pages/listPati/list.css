@@ -49,3 +49,44 @@
           border-bottom: 1px solid #aaa;
           margin-bottom: .5em;
       }
+@media screen and (max-width: 1220px) {
+  body {
+    background-color: rgb(142, 121, 196);
+  }
+  #customers {
+   
+    background-color: rgb(243, 246, 249);
+  }
+  summary {
+    font-weight: bold;
+    width: 500px;
+    
+    
+}
+#customers td, #customers th {
+  border: 1px solid #11c62f;
+  padding: 1px;
+}
+#customers th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  background-color: #200688;
+  color: white;
+}
+/* .patlist details{
+  position: relative;
+  right: 300px;
+} */
+#customers{
+  position: absolute;
+  
+  right: -25px;
+}
+#customers1{
+  position: absolute;
+  
+  right: 125px;
+}
+
+}    

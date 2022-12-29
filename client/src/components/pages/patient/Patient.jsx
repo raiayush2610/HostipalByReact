@@ -15,7 +15,7 @@ function Patient() {
   const [entry,setEntry]= useState([]);
   const navigate = useNavigate();
   const [email,setEmail] = useState('');
-  const Email = location.state.email1;
+  const Email = location.state.email1;     
   const First_Name = location.state.fName;
   const Last_Name = location.state.lName
   // console.log(location.state.email1);
@@ -56,7 +56,7 @@ function Patient() {
       <h1 class="h3 mb-3 mb-4 fw-normal">Patient Form </h1>   
   
       <div class="form-floating">
-        <input type="text" name="patName" value={First_Name + " " + Last_Name} class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
+        <input type="text" name="patName"  class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
         <label htmlFor="floatingInput1">Patient Full name:</label>
       </div>
       <div class="form-floating">
@@ -76,7 +76,7 @@ function Patient() {
         <label htmlFor="floatingdisease">Patient Disease</label>
     </div>
     <div class="form-floating">
-      <input type="tel" name="patNumber"class="form-control bottom" id="floatingPhone"onChange={(e)=>{setpatno(e.target.value)}} placeholder="Patient Phone Number:-"required />
+      <input type="tel" name="patNumber"class="form-control bottom" id="floatingPhone" onChange={(e)=>{setpatno(e.target.value)}} placeholder="Patient Phone Number:-"required />
       <label htmlFor="floatingPhone">Patient Phone Number:-</label>
   </div>
       <div class="form-floating">
@@ -121,7 +121,7 @@ function Patient() {
                                       <option value="West_Bengal">West Bengal</option>
                               </select>
     </div>
-    
+    console.log();
     
       
   

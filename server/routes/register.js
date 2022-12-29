@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const bcrypt = require("bcrypt");
 const register = require('../models/register');
+const session = require('express-session');
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
+
+
+
 
 // Insert item
 router.post('/api/entry', async (req, res)=>{
@@ -23,7 +29,28 @@ router.post('/api/entry', async (req, res)=>{
         
     }
 })
+router.post('/api/entry', async (req, res)=>{
+    try{
+        const plainPassword = req.body.password;
+        const hashPassword = bcrypt.hashSync(plainPassword, 7);
+    
+        const newItem = new register({
+            fName: req.body.fName,
+            lName: req.body.lName,
+            email: req.body.email,
+            
+            password: hashPassword
+        })
+        // save
+        const save = await newItem.save()
+        console.log(newItem);
 
+        res.status(200).json(newItem);
+    } catch (error) {
+        res.json(error)
+        
+    }
+})
 router.post("/api/entries", async (req, res) => {
     try {
         const reqEmail = req.body.email;
